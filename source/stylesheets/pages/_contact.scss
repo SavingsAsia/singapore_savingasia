@@ -1,0 +1,32 @@
+.contact {
+  background: darkblue;
+}
+
+.contact__heading {
+  margin: 0;
+  padding-top: 80px;
+  padding-bottom: 25px;
+  color: $light-brand;
+  font-size: 1.5 * $font-huge;
+}
+
+.contact__box {
+  margin: $base-spacing-unit;
+  padding: $base-spacing-unit;
+  background: $brand;
+  border-radius: 25px;
+  opacity: 0.8;
+  p {
+    margin: 5px 0;
+    font-size: $font-large;
+    color: $dark-brand;
+  }
+}
+
+.contact__email {
+  margin: 30px 0 !important;
+}
+
+.contact__location {
+  margin: 40px 0 !important;
+}

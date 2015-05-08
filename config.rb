@@ -3,6 +3,11 @@ require 'bootstrap-sass'
 
 activate :autoprefixer
 
+configure :development do
+  activate :livereload
+end
+
+set :fonts_dir, 'fonts'
 set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'

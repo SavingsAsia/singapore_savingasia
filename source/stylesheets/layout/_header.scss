@@ -1,0 +1,49 @@
+.container__header {
+  position: fixed;
+  top: 0;
+  background: white;
+  display: table;
+  width: 100%;
+  height: $header-container-height;
+  z-index: 100;
+}
+
+.container__header__bar {
+  display: table-cell !important;
+  height: inherit;
+  vertical-align: bottom;
+  display: inline;
+  padding-bottom: $half-spacing-unit;
+}
+
+.header__logo {
+  font-family: 'ChaletNewYork';
+  font-size: $font-huge;
+  span:first-child {
+    color: $brand;
+  }
+  span:last-child {
+    color: $dark-brand;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+.header__slogan {
+  margin-left: $half-spacing-unit;
+  font-family: 'ChaletParis';
+  display: inline;
+  font-size: 0.5 * $font-huge;
+}
+
+.header__menu {
+  color: $dark-brand;
+  font-family: 'VarelaRound';
+  font-size: $font-large;
+  li {
+    a {
+      color: $dark-brand;
+    }
+  }
+}
