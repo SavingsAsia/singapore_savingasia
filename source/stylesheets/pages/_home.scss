@@ -1,0 +1,21 @@
+.home {
+  background: url('../images/bangkok_hero.jpg');
+  height: $section-height;
+  background-size: cover;
+}
+
+.home__wrapper {
+  width: 50%;
+  margin: auto;
+}
+
+.home__heading {
+  padding-top: 100px;
+  color: $light-brand;
+  font-size: 1.5 * $font-huge;
+}
+
+.home__subheading {
+  color: $light-brand;
+  font-size: $font-huge;
+}

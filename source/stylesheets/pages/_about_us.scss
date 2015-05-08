@@ -1,0 +1,23 @@
+.about {
+  background: grey;
+  background-size: cover;
+  padding: 3 * $base-spacing-unit 0;
+}
+
+.about__heading {
+  padding: 2 * $base-spacing-unit;
+  color: $light-brand;
+  font-size: 1.5 * $font-huge;
+}
+
+.content__box {
+  margin: 2 * $base-spacing-unit 0;
+  p {
+    font-size: $font-large;
+    color: $dark-brand;
+  }
+}
+
+.content__wrapper {
+  margin-top: 50px;
+}

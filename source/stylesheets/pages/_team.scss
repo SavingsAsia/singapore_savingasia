@@ -1,0 +1,40 @@
+.team {
+  background: lighten($brand, 25%);
+  background-size: cover;
+  padding: 3 * $base-spacing-unit 0;
+}
+
+.team__wrapper {
+  margin: auto;
+  width: 70%;
+}
+
+.team__heading {
+  font-size: 1.2 * $font-huge;
+  color: $light-brand;
+}
+
+.team__invitation {
+  padding-top: 50px;
+  font-size: 2 * $font-huge;
+  color: $light-brand;
+}
+
+.team__member__avatar {
+  height: 250px;
+  width: 250px;
+  margin: auto;
+  border-radius: 50%;
+  border: 3px solid $light-brand;
+  margin-bottom: $base-spacing-unit;
+  background: url('../images/bangkok_hero.jpg');
+}
+
+.team__member--info {
+  p {
+    margin: 7px;
+    line-height: $font-large;
+    color: $light-brand;
+    font-size: $font-large;
+  }
+}

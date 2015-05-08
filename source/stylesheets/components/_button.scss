@@ -1,0 +1,24 @@
+.btn__landing {
+  padding: 4px 15px !important;
+  cursor: pointer;
+  padding: 0 $half-spacing-unit;
+  font-size: $font-large;
+  text-align: left;
+  display: inline-block;
+  width: auto;
+  color: $light-brand;
+  background: $brand;
+  border-radius: 25px;
+  border: 2px solid $light-brand;
+  line-height: 40px;
+
+  &:hover {
+    text-decoration: none;
+    color: lighten($light-brand, 5%);
+    background: lighten($brand, 8%);
+  }
+}
+
+.btn--medium {
+  width: 150px;
+}
