@@ -1,0 +1,17 @@
+.container__header {
+  background: white;
+  display: table;
+  width: 100%;
+  height: 80px;
+}
+
+.container__header__bar {
+  display: table-cell !important;
+  height: inherit;
+  vertical-align: bottom;
+  display: inline;
+}
+
+.font {
+  font-family: 'ChaletNewYork';
+}
