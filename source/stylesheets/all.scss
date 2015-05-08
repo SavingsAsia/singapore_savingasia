@@ -1,11 +1,10 @@
 @charset "utf-8";
 
-@import 'helpers/variables';
+@import "helpers/variables";
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "variables";
-@import "fonts";
+@import "helpers/fonts";
 
 @import "core/layout";
 
@@ -19,3 +18,5 @@
 @import "pages/team";
 @import "pages/contact";
 @import "pages/contact";
+
+@import "core/layout_responsive";

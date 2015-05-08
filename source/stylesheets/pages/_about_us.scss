@@ -2,10 +2,12 @@
   background: grey;
   background-size: cover;
   padding: 3 * $base-spacing-unit 0;
+  background: url('../images/about_us.jpg');
+  height: $section-height;
 }
 
 .about__heading {
-  padding: 2 * $base-spacing-unit;
+  padding: 0  2 * $base-spacing-unit;
   color: $light-brand;
   font-size: 1.5 * $font-huge;
 }

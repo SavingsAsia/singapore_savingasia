@@ -11,6 +11,7 @@ gem "middleman", "~>3.3.12"
 gem "middleman-deploy"
 gem "middleman-autoprefixer"
 gem "middleman-sprockets", '>= 3.3.10'
+gem "middleman-livereload", group: :development
 
 gem 'slim', '>= 2.0'
 gem 'bootstrap-sass'

@@ -1,0 +1,98 @@
+@media(max-width: 1280px) {
+  .about__heading {
+    padding: 0;
+    margin: 0;
+  }
+
+  .content__wrapper {
+    margin-top: 30px;
+  }
+
+  .content__box {
+    p {
+      font-size: 20px;
+    }
+  }
+
+  .team__invitation {
+    padding-top: 20px;
+  }
+
+  .team__member--info {
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
+@media(max-width: 980px) {
+  .home__heading {
+    font-size: 50px;
+  }
+
+  .team__invitation {
+    font-size: 68px;
+  }
+}
+
+@media(max-width: 800px) {
+  .home__heading, .about__heading, .team__heading {
+    font-size: 45px;
+  }
+
+  .team__invitation {
+    font-size: 50px;
+  }
+
+  .content__box {
+    p {
+      font-size: 18px;
+    }
+  }
+}
+
+@media(max-width: 360px) {
+  .landing__body {
+    margin: 0;
+  }
+
+  .home__wrapper, .team__wrapper {
+    width: 100%;
+  }
+
+  .home__heading {
+    margin-top: 0;
+  }
+
+  .home__heading, .about__heading, .team__heading, .team__invitation {
+    font-size: 40px;
+  }
+
+  .content__box {
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .container__header {
+    position: relative;
+  }
+
+  .header__slogan {
+    display: block;
+  }
+
+  .contact__heading {
+    font-size: 48px;
+  }
+
+  .contact__email {
+    margin: 15px 0px !important;
+  }
+
+  .contact__box {
+    p {
+      font-size: 20px;
+    }
+  }
+}
