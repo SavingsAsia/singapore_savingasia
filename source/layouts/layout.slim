@@ -11,6 +11,8 @@ html
 
     == stylesheet_link_tag "all"
 
-  body class="#{page_classes}"
+  body
+    == partial 'header'
+
     == yield
     == javascript_include_tag  "all"
