@@ -18,5 +18,4 @@ activate :deploy do |deploy|
   deploy.build_before = true
   deploy.method = :git
   deploy.strategy = :force_push
-  deploy.remote = 'shelly'
 end

@@ -6,4 +6,4 @@ frontend:
   servers:
     app1:
       size: small
-      puma: 2
+      puma: 1
