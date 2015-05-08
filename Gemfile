@@ -23,5 +23,5 @@ gem "tzinfo-data", platforms: [:mswin, :mingw]
 
 group :production do
   gem 'shelly-dependencies'
-  gem 'puma'
+  gem 'thin'
 end
