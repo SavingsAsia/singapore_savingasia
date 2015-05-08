@@ -1,4 +1,5 @@
 require "slim"
+require 'bootstrap-sass'
 
 ###
 # Compass
