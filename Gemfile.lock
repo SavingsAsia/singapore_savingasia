@@ -149,6 +149,8 @@ DEPENDENCIES
   middleman-deploy
   middleman-sprockets (>= 3.3.10)
   puma
+  rack
+  rake
   shelly-dependencies
   slim (>= 2.0)
   tzinfo-data
