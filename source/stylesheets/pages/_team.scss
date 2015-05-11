@@ -1,7 +1,7 @@
 .team {
-  background: lighten($brand, 25%);
   background-size: cover;
-  padding: 3 * $base-spacing-unit 0;
+  background: url('../images/meet_the_team.jpg');
+  background-position: 90% 99%;
 }
 
 .team__wrapper {
