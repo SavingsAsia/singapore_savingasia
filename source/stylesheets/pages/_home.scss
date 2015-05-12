@@ -6,16 +6,17 @@
 
 .home__wrapper {
   width: 50%;
-  margin: auto;
+  margin: $base-spacing-unit auto;
 }
 
 .home__heading {
   padding-top: 100px;
-  color: $light-brand;
+  padding-bottom: 20px;
+  color: $dark-brand;
   font-size: 1.5 * $font-huge;
 }
 
 .home__subheading {
-  color: $light-brand;
-  font-size: $font-huge;
+  color: $dark-brand;
+  font-size: 0.8 * $font-huge;
 }

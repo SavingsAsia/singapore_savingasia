@@ -2,3 +2,7 @@
   float: none;
   margin: auto !important;
 }
+
+.push-double--top {
+  margin-top: 2 * $base-spacing-unit;
+}
