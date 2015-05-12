@@ -1,12 +1,11 @@
 .about {
   background-size: cover;
-  padding: 3 * $base-spacing-unit 0;
   background: url('../images/about_us.jpg');
 }
 
 .about__heading {
   padding: 0  2 * $base-spacing-unit;
-  color: $light-brand;
+  color: $dark-brand;
   font-size: 1.5 * $font-huge;
 }
 
@@ -19,5 +18,5 @@
 }
 
 .content__wrapper {
-  margin-top: 50px;
+  margin-top: 60px;
 }
