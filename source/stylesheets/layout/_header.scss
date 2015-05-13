@@ -17,19 +17,9 @@
 }
 
 .header__logo {
-  font-family: 'ChaletNewYork';
-  font-size: $font-huge;
-  span:first-child {
-    color: $brand;
-  }
-  span:last-child {
-    color: $dark-brand;
-  }
-
-  &:hover {
-    text-decoration: none;
-  }
+  width: 80%;
 }
+
 .header__slogan {
   margin-left: $half-spacing-unit;
   font-family: 'ChaletParis';
@@ -46,4 +36,9 @@
       color: $dark-brand;
     }
   }
+}
+
+.header__wrapper--logo {
+  display: inline;
+  line-height: 50px;
 }
