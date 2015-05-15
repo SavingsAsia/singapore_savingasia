@@ -20,14 +20,24 @@
   color: $light-brand;
 }
 
-.team__member__avatar {
-  height: 250px;
-  width: 250px;
-  margin: auto;
-  border-radius: 50%;
-  border: 3px solid $light-brand;
-  margin-bottom: $base-spacing-unit;
-  background: url('../images/bangkok_hero.jpg');
+.team__member__avatar--ms {
+  @include team-member();
+  background: url('../images/ms.png');
+}
+
+.team__member__avatar--mj {
+  @include team-member();
+  background: url('../images/mj.png');
+}
+
+.team__member__avatar--ss {
+  @include team-member();
+  background: url('../images/ss.png');
+}
+
+.team__member__avatar--mm {
+  @include team-member();
+  background: url('../images/mm.png');
 }
 
 .team__members {

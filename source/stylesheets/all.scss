@@ -9,8 +9,10 @@
 @import "core/layout";
 
 @import "layout/header";
+@import "layout/footer";
 
 @import "components/button";
+@import "mixins/team_member";
 @import "helpers/position";
 
 @import "pages/home";
