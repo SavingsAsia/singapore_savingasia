@@ -1,9 +1,0 @@
-frontend:
-  ruby_version: 2.2.2
-  environment: production
-  domains:
-    - frontend.shellyapp.com
-  servers:
-    app1:
-      size: small
-      thin: 1
