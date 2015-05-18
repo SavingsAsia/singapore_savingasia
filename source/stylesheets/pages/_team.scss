@@ -1,5 +1,19 @@
+#team {
+  height: 1750px;
+}
+
+.hide {
+  display: none !important;
+}
+
 .team {
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
   background: url('../images/meet_the_team.jpg');
   background-position: 90% 99%;
 }

@@ -1,16 +1,28 @@
 .home {
+  padding-bottom: 120px;
   background: url('../images/investors.jpg');
-  height: $section-height;
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
 }
 
 .home__wrapper {
-  width: 50%;
+  padding-top: 30px;
+  position: relative;
+  width: 100%;
   margin: $base-spacing-unit auto;
 }
 
+.home__wrapper.skrollable-after {
+  position: relative !important;
+}
+
 .home__heading {
-  padding-top: 100px;
+  padding-top: 35px;
   padding-bottom: 20px;
   color: $dark-brand;
   font-size: 1.5 * $font-huge;
@@ -19,4 +31,8 @@
 .home__subheading {
   color: $dark-brand;
   font-size: 0.8 * $font-huge;
+}
+
+#home {
+  height: 800px;
 }
