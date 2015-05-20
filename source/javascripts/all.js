@@ -16,18 +16,27 @@ $(function() {
   }
 
   function smoothScroll(event){
-      $('html, body').animate({
-          scrollTop: $( $(this).attr('href') ).offset().top
-      }, 700);
-      return false;
+    var offset = event.data.offset
+    $('html, body').animate({
+        scrollTop: $( $(this).attr('href') ).offset().top + offset
+    }, 700);
+    return false;
   };
 
-  $('a').on('click', smoothScroll);
-
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    return
+    $('#team').height(1200);
+    $('[name=team]').on('click', {offset: 0}, smoothScroll);
+    $('[name=about]').on('click', {offset: -50}, smoothScroll);
+    $('[name=contact]').on('click', {offset: 0}, smoothScroll);
+    $('[name=location]').on('click', {offset: 0}, smoothScroll);
+    $('[name=home]').on('click', {offset: -100}, smoothScroll);
   } else {
-    skrollr.init();
+    $('[name=home]').on('click', {offset: 0}, smoothScroll);
+    $('[name=team]').on('click', {offset: 500}, smoothScroll);
+    $('[name=about]').on('click', {offset: 0}, smoothScroll);
+    $('[name=contact]').on('click', {offset: 0}, smoothScroll);
+    $('[name=location]').on('click', {offset: -50}, smoothScroll);
+    skrollr.init({forceHeight: false});
     $(window).on('scroll', {position: teamScrollPosition, target: '.team'}, hideTarget);
   }
 });
