@@ -1,5 +1,12 @@
 #team {
   height: 1750px;
+  z-index: 20;
+  position: relative;
+}
+
+#location {
+  z-index: 20;
+  position: relative;
 }
 
 .hide {
@@ -16,7 +23,7 @@
   height: 100%;
   width: 100%;
   background: url('../images/meet_the_team.jpg');
-  background-position: 90% 99%;
+  background-position: 90% 0;
 }
 
 .team__wrapper {
@@ -26,7 +33,8 @@
 
 .team__heading {
   font-size: 1.2 * $font-huge;
-  color: $light-brand;
+  color: $dark-brand;
+  padding-bottom: 40px;
 }
 
 .team__invitation {
@@ -63,7 +71,13 @@
   p {
     margin: 7px;
     line-height: $font-large;
-    color: $light-brand;
+    color: $dark-brand;
+    font-size: $font-large;
+  }
+  a {
+    margin: 7px;
+    line-height: $font-large;
+    color: $dark-brand;
     font-size: $font-large;
   }
 }

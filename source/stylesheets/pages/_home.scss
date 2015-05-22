@@ -1,7 +1,9 @@
+#home {
+  height: $section-height;
+}
+
 .home {
-  padding-bottom: 120px;
   background: url('../images/investors.jpg');
-  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -11,6 +13,7 @@
 }
 
 .home__wrapper {
+  width: 50%;
   padding-top: 30px;
   position: relative;
   width: 100%;
@@ -31,8 +34,4 @@
 .home__subheading {
   color: $dark-brand;
   font-size: 0.8 * $font-huge;
-}
-
-#home {
-  height: 800px;
 }

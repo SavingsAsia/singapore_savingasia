@@ -1,11 +1,11 @@
 .container__header {
+  z-index: 100;
   position: fixed;
   top: 0;
   background: white;
   display: table;
   width: 100%;
   height: $header-container-height;
-  z-index: 100;
 }
 
 .container__header__bar {
@@ -17,7 +17,8 @@
 }
 
 .header__logo {
-  width: 80%;
+  width: 82%;
+  max-width: 650px;
 }
 
 .header__slogan {
@@ -33,7 +34,17 @@
   font-size: $font-large;
   li {
     a {
+      padding-top: 20px;
+      padding-bottom: 10px;
       color: $dark-brand;
+    }
+    a:focus {
+      color: #00b3f3;
+      background: inherit;
+    }
+    a:hover {
+      color: #00b3f3;
+      background: inherit;
     }
   }
 }
