@@ -29,7 +29,7 @@ $(function() {
     skrollr.init({forceHeight: false, render: function(data) { console.log(data.curTop) }  });
     $('[name=home]').on('click', {value: 0}, smoothScroll);
     $('[name=team]').on('click', {value: 2100}, smoothScroll);
-    $('[name=about]').on('click', {value: 1300}, smoothScroll);
+    $('[name=about]').on('click', {value: 1250}, smoothScroll);
     $('[name=contact]').on('click', {value: 3250}, smoothScroll);
     $('[name=location]').on('click', {value: 4400}, smoothScroll);
   }
