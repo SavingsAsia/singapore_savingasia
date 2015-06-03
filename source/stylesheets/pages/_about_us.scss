@@ -1,5 +1,14 @@
 #about {
   height: $section-height;
+  @include respond-to(mobile) {
+    height: auto;
+  }
+  @include respond-to(tablet) {
+    height: auto;
+  }
+  @include respond-to(hd) {
+    height: auto;
+  }
 }
 
 .about {
@@ -14,6 +23,15 @@
 }
 
 .about__wrapper {
+  @include respond-to(mobile) {
+    width: 90%;
+  }
+  @include respond-to(tablet) {
+    width: 65%;
+  }
+  @include respond-to(hd) {
+    width: 65%;
+  }
   position: relative;
   z-index: 20;
   width: 56%;
@@ -22,6 +40,12 @@
 }
 
 .about__heading {
+  @include respond-to(mobile) {
+    font-size: 80px;
+  }
+  @include respond-to(hd) {
+    font-size: 80px;
+  }
   color: $dark-brand;
   font-size: 1.5 * $font-huge;
 }
@@ -29,6 +53,12 @@
 .content__box {
   margin: 2 * $base-spacing-unit 0;
   p {
+    @include respond-to(mobile) {
+      font-size: 40px;
+    }
+    @include respond-to(hd) {
+      font-size: 40px;
+    }
     font-size: 32px;
     color: $dark-brand;
   }

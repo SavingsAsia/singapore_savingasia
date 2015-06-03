@@ -1,3 +1,4 @@
+@import 'mixins/rwd';
 .container__header {
   z-index: 100;
   position: fixed;
@@ -17,8 +18,10 @@
 }
 
 .header__logo {
+  @include respond-to(mobile) {
+    width: 100%;
+  }
   width: 82%;
-  max-width: 650px;
 }
 
 .header__slogan {
@@ -29,6 +32,26 @@
 }
 
 .header__menu {
+  float: right;
+  position: relative;
+  top: 20px;
+
+  @include respond-to(hd) {
+    float: none;
+  }
+  @include respond-to(tablet) {
+    top: 0px;
+  }
+  @include respond-to(mobile) {
+    top: 0px;
+    width: 100%;
+    li {
+      a {
+        font-size: 40px;
+      }
+    }
+  }
+
   color: $dark-brand;
   font-family: 'VarelaRound';
   font-size: $font-large;
@@ -54,6 +77,25 @@
 }
 
 .header__wrapper--logo {
+  @include respond-to(mobile) {
+    text-align: center;
+  }
+
   display: inline;
   line-height: 50px;
+}
+
+.header__wrapper--menu {
+  @include respond-to(mobile) {
+    text-align: center;
+  }
+}
+
+.navbar-nav {
+  li {
+    @include respond-to(mobile) {
+      float: none !important;
+      display: inline-block !important;
+    }
+  }
 }

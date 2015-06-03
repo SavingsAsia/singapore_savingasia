@@ -1,4 +1,10 @@
 #home {
+  @include respond-to(mobile) {
+    height: 0.8 * $section-height;
+  }
+  @include respond-to(tablet) {
+    height: 0.8 * $section-height;
+  }
   height: $section-height;
 }
 
@@ -14,6 +20,12 @@
 }
 
 .home__wrapper {
+  @include respond-to(mobile) {
+    padding-top: 200px;
+  }
+  @include respond-to(hd) {
+    padding-top: 300px;
+  }
   width: 50%;
   padding-top: 30px;
   position: relative;
@@ -26,6 +38,12 @@
 }
 
 .home__heading {
+  @include respond-to(mobile) {
+    font-size: 80px;
+  }
+  @include respond-to(hd) {
+    font-size: 80px;
+  }
   margin-top: 0;
   padding-bottom: 20px;
   color: $dark-brand;
@@ -33,6 +51,12 @@
 }
 
 .home__subheading {
+  @include respond-to(mobile) {
+    font-size: 55px;
+  }
+  @include respond-to(hd) {
+    font-size: 50px;
+  }
   color: $dark-brand;
   font-size: 0.8 * $font-huge;
 }
