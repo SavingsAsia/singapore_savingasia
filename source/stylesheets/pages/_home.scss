@@ -8,6 +8,7 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  text-align: center;
   height: 100%;
   width: 100%;
 }
@@ -25,7 +26,7 @@
 }
 
 .home__heading {
-  padding-top: 35px;
+  margin-top: 0;
   padding-bottom: 20px;
   color: $dark-brand;
   font-size: 1.5 * $font-huge;

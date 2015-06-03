@@ -10,13 +10,13 @@
   width: 100%;
   background-size: cover;
   background: url('../images/map.jpg');
-  padding-top: 20px;
+  padding-top: 40px;
 }
 
 .about__wrapper {
   position: relative;
   z-index: 20;
-  width: 50%;
+  width: 56%;
   text-align: center;
   margin: auto;
 }
@@ -29,11 +29,11 @@
 .content__box {
   margin: 2 * $base-spacing-unit 0;
   p {
-    font-size: $font-large;
+    font-size: 32px;
     color: $dark-brand;
   }
 }
 
 .content__wrapper {
-  margin-top: 30px;
+  margin-top: 32px;
 }

@@ -39,7 +39,7 @@
       color: $dark-brand;
     }
     a:focus {
-      color: #00b3f3;
+      color: $dark-brand;
       background: inherit;
     }
     a:hover {
@@ -47,6 +47,10 @@
       background: inherit;
     }
   }
+}
+
+.active {
+  color: #00b3f3 !important;
 }
 
 .header__wrapper--logo {
