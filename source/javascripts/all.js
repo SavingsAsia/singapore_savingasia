@@ -46,14 +46,18 @@ $(function() {
     }, 500);
   }
 
-
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    $('#team').height(1200);
-    $('[name=team]').on('click', {offset: 0}, smoothScroll);
-    $('[name=about]').on('click', {offset: -50}, smoothScroll);
-    $('[name=contact]').on('click', {offset: 0}, smoothScroll);
+    $('[name=team]').on('click', {value: 1900}, smoothScroll);
+    $('[name=about]').on('click', {value: 959}, smoothScroll);
+    $('[name=contact]').on('click', {value: 2955}, smoothScroll);
     $('[name=location]').on('click', {offset: 0}, smoothScroll);
-    $('[name=home]').on('click', {offset: -100}, smoothScroll);
+    $('[name=home]').on('click', {value: 5}, smoothScroll);
+  } else if ($(window).width() >= 1920) {
+    $('[name=team]').on('click', {value: 2140}, smoothScroll);
+    $('[name=about]').on('click', {value: 1220}, smoothScroll);
+    $('[name=contact]').on('click', {value: 3114}, smoothScroll);
+    $('[name=location]').on('click', {offset: 0}, smoothScroll);
+    $('[name=home]').on('click', {offset: 0}, smoothScroll);
   } else {
     skrollr.init({forceHeight: false, render: function(data) {} });
     $(document).on('ready', initScrollSpy(sections));

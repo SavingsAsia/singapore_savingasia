@@ -1,4 +1,13 @@
 #team {
+  @include respond-to(mobile) {
+    height: 950px;
+  }
+  @include respond-to(tablet) {
+    height: 950px;
+  }
+  @include respond-to(hd) {
+    height: 950px;
+  }
   height: 1750px;
   z-index: 20;
   position: relative;
@@ -29,9 +38,18 @@
 .team__wrapper {
   margin: auto;
   width: 70%;
+  @include respond-to(tablet) {
+    width: 100%;
+  }
 }
 
 .team__heading {
+  @include respond-to(mobile) {
+    font-size: 80px;
+  }
+  @include respond-to(hd) {
+    font-size: 80px;
+  }
   font-size: 1.2 * $font-huge;
   color: $dark-brand;
   padding-bottom: 40px;
@@ -69,12 +87,29 @@
 
 .team__member--info {
   p {
+    @include respond-to(mobile) {
+      font-size: 30px;
+      line-height: 35px;
+    }
+    @include respond-to(hd) {
+      font-size: 30px;
+      line-height: 35px;
+    }
+
     margin: 7px;
     line-height: $font-large;
     color: $dark-brand;
     font-size: $font-large;
   }
   a {
+    @include respond-to(mobile) {
+      font-size: 30px;
+      line-height: 35px;
+    }
+    @include respond-to(hd) {
+      font-size: 30px;
+      line-height: 35px;
+    }
     margin: 7px;
     line-height: $font-large;
     color: $dark-brand;

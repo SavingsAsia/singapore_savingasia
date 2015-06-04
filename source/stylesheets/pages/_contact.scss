@@ -1,5 +1,14 @@
 #contact {
   height: $section-height;
+  @include respond-to(mobile) {
+    height: 900px;
+  }
+  @include respond-to(tablet) {
+    height: 900px;
+  }
+  @include respond-to(hd) {
+    height: 900px;
+  }
 }
 
 .contact {
@@ -13,6 +22,12 @@
 }
 
 .contact__heading {
+  @include respond-to(mobile) {
+    font-size: 80px;
+  }
+  @include respond-to(hd) {
+    font-size: 80px;
+  }
   margin: 0;
   padding-top: 40px;
   padding-bottom: 25px;
@@ -28,11 +43,23 @@
   background: rgba(255, 255, 255, 0.6);
   border-radius: 25px;
   p {
+    @include respond-to(mobile) {
+      font-size: 50px;
+    }
+    @include respond-to(hd) {
+      font-size: 50px;
+    }
     margin: 5px 0;
     font-size: 30px;
     color: $dark-brand;
   }
   a {
+    @include respond-to(mobile) {
+      font-size: 40px;
+    }
+    @include respond-to(hd) {
+      font-size: 40px;
+    }
     margin: 5px 0;
     font-size: $font-large;
     color: $dark-brand;
