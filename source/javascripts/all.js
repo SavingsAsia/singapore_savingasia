@@ -46,15 +46,15 @@ $(function() {
     }, 500);
   }
 
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    $('[name=team]').on('click', {value: 1900}, smoothScroll);
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1100 ) {
+    $('[name=team]').on('click', {value: 2006}, smoothScroll);
     $('[name=about]').on('click', {value: 959}, smoothScroll);
-    $('[name=contact]').on('click', {value: 2955}, smoothScroll);
+    $('[name=contact]').on('click', {value: 3017}, smoothScroll);
     $('[name=location]').on('click', {offset: 0}, smoothScroll);
     $('[name=home]').on('click', {value: 5}, smoothScroll);
-  } else if ($(window).width() >= 1920) {
+  } else if ($(window).width() > 1920) {
     $('[name=team]').on('click', {value: 2140}, smoothScroll);
-    $('[name=about]').on('click', {value: 1220}, smoothScroll);
+    $('[name=about]').on('click', {offset: 1220}, smoothScroll);
     $('[name=contact]').on('click', {value: 3114}, smoothScroll);
     $('[name=location]').on('click', {offset: 0}, smoothScroll);
     $('[name=home]').on('click', {offset: 0}, smoothScroll);

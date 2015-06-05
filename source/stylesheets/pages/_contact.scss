@@ -16,9 +16,13 @@
   position: relative;
   background-size: cover;
   background: url('../images/contact_us.jpg');
-  background-position: 30% 0%;
+  background-position: 56% 0%;
   padding: 40px auto;
   z-index: 20;
+
+  @include respond-to(tablet) {
+    background-position: 56% 0%;
+  }
 }
 
 .contact__heading {
@@ -63,9 +67,6 @@
     margin: 5px 0;
     font-size: $font-large;
     color: $dark-brand;
-  }
-  button {
-    margin: 10px;
   }
 }
 

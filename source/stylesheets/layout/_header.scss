@@ -1,5 +1,6 @@
 @import 'mixins/rwd';
 .container__header {
+  display: table;
   z-index: 100;
   position: fixed;
   top: 0;
@@ -18,10 +19,17 @@
 }
 
 .header__logo {
+  max-width: 600px;
+
   @include respond-to(mobile) {
-    width: 100%;
+    width: 600px;
   }
-  width: 82%;
+  @include respond-to(desktop) {
+    width: 55%;
+  }
+  @include respond-to(hd) {
+    width: 50%;
+  }
 }
 
 .header__slogan {
@@ -34,7 +42,11 @@
 .header__menu {
   float: right;
   position: relative;
-  top: 20px;
+  display: table-cell;
+  vertical-align: middle;
+  color: $dark-brand;
+  font-family: 'VarelaRound';
+  font-size: $font-large;
 
   @include respond-to(hd) {
     float: none;
@@ -52,9 +64,6 @@
     }
   }
 
-  color: $dark-brand;
-  font-family: 'VarelaRound';
-  font-size: $font-large;
   li {
     a {
       padding-top: 20px;
@@ -81,6 +90,8 @@
     text-align: center;
   }
 
+  text-align: left;
+  padding-left: 10px;
   display: inline;
   line-height: 50px;
 }
