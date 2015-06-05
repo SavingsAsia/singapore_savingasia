@@ -1,7 +1,7 @@
 @mixin team-member() {
   @include respond-to(mobile) {
-    height: 220px;
-    width: 220px;
+    height: 210px;
+    width: 210px;
   }
   height: 250px;
   width: 250px;

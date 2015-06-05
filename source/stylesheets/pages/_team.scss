@@ -88,8 +88,8 @@
 .team__member--info {
   p {
     @include respond-to(mobile) {
-      font-size: 30px;
-      line-height: 35px;
+      font-size: 25px;
+      line-height: 30px;
     }
     @include respond-to(hd) {
       font-size: 30px;
