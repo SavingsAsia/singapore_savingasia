@@ -1,23 +1,28 @@
-.about__overlay {
-  width: 100%;
-  height: $section-height;
-  background: white;
-  opacity: 0.5;
-  position: absolute;
-  top: 105 + $section-height;
-}
-
 .home__overlay {
-  @include respond-to(mobile) {
-    width: 90%;
-  }
-  @include respond-to(tablet) {
-    width: 90%;
-  }
+  width: 70%;
+  border-radius: 35px;
   padding: 30px;
-  width: 50%;
   height: auto;
   background-color: rgba(255, 255, 255, 0.6);
   margin: auto;
   top: 0px;
+
+  @include respond-to(mobile-small) {
+    width: 90%;
+  }
+  @include respond-to(mobile) {
+    width: 90%;
+  }
+  @include respond-to(tablet) {
+    width: 70%;
+  }
+  @include respond-to(desktop) {
+    width: 57%;
+  }
+  @include respond-to(desktop-hd) {
+    width: 52%;
+  }
+  @include respond-to(desktop-uhd) {
+    width: 57%;
+  }
 }

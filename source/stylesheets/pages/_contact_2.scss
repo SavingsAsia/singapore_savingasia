@@ -1,0 +1,208 @@
+#contact {
+  height: 100vh;
+  overflow: hidden;
+  @include respond-to(mobile-small) {
+    height: 1200px;
+  }
+  @include respond-to(mobile) {
+    height: 1500px;
+  }
+  @include respond-to(tablet) {
+    height: 100vh;
+  }
+}
+
+.contact {
+  margin: auto;
+  height: inherit;
+  position: relative;
+  background-size: 100% 100%;
+  padding: 40px auto;
+  z-index: 20;
+  height: inherit;
+
+  .google-map {
+    width: 100%;
+    height: 100vh;
+    display: inline-block;
+    @include respond-to(mobile-small) {
+      width: 100%;
+      height: 100%;
+    }
+    @include respond-to(mobile) {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .gmnoprint {
+    display: none;
+  }
+  .gm-style .gm-style-iw {
+    font-family: inherit;
+    font-size: 18px;
+    @include respond-to(mobile) {
+      font-size: 32px;
+    }
+  }
+}
+
+.map__wrapper {
+  display: inline-block;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  padding: 1px;
+
+  @include respond-to(mobile-small) {
+    width: 100%;
+  }
+  @include respond-to(mobile) {
+    width: 100%;
+  }
+}
+
+.loading {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  z-index: 1000;
+  @include respond-to(mobile-small) {
+    height: 100%;
+  }
+  @include respond-to(mobile) {
+    height: 100%;
+  }
+}
+
+.map__overlay {
+  transition: 3s opacity ease-in-out;
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  opacity: 0.4;
+  z-index: 900;
+  @include respond-to(mobile-small) {
+    height: 100%;
+  }
+  @include respond-to(mobile) {
+    height: 100%;
+  }
+}
+
+.contact__box {
+  width: 40%;
+  background-color: white;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  @include set-font-for(subheading);
+}
+
+.contact__heading {
+  margin: 0;
+  padding-top: 40px;
+  padding-bottom: 25px;
+  font-size: 1.5 * $font-huge;
+
+  @include respond-to(mobile-small) {
+    font-size: $mobile-small-heading;
+    font-weight: bold;
+  }
+
+  @include respond-to(mobile) {
+    font-size: 80px;
+  }
+  @include respond-to(tablet) {
+    font-size: $tablet-heading;
+  }
+  @include respond-to(desktop) {
+    font-size: $desktop-heading;
+  }
+  @include respond-to(desktop-hd) {
+    font-size: $desktop-hd-heading;
+  }
+  @include respond-to(desktop-uhd) {
+    font-size: 80px;
+  }
+}
+
+.contact__box {
+  position: relative;
+  padding-bottom: 20px;
+  margin: $base-spacing-unit;
+  background: transparent;
+  border-radius: 25px;
+  p {
+    margin: 5px 0;
+    font-size: 30px;
+    color: $dark-brand;
+
+    @include respond-to(mobile) {
+      font-size: 55px;
+    }
+    @include respond-to(mobile-small) {
+      font-size: $mobile-small-heading;
+    }
+    @include respond-to(mobile-retina) {
+      font-size: 55px;
+    }
+    @include respond-to(tablet) {
+      font-size: $tablet-subheading;
+    }
+    @include respond-to(desktop) {
+      font-size: $desktop-subheading;
+    }
+    @include respond-to(desktop-hd) {
+      font-size: $desktop-hd-subheading;
+    }
+    @include respond-to(desktop-uhd) {
+      font-size: 60px;
+    }
+  }
+  a {
+    margin: 5px 0;
+    font-size: $font-large;
+    color: $dark-brand;
+    &:hover {
+      color: $color-text-brand;
+    }
+
+    @include respond-to(mobile) {
+      font-size: 55px;
+    }
+    @include respond-to(mobile-retina) {
+      font-size: 55px;
+    }
+    @include respond-to(tablet) {
+      font-size: $tablet-subheading -3px;
+    }
+    @include respond-to(desktop) {
+      font-size: $desktop-subheading -3px;
+    }
+    @include respond-to(desktop-hd) {
+      font-size: $desktop-hd-subheading -3px;
+    }
+    @include respond-to(desktop-uhd) {
+      font-size: 60px;
+    }
+
+  }
+}
+
+.contact__email {
+  margin: 30px 0 !important;
+}
+
+.contact__location {
+  margin: 60px 0 !important;
+  @include set-font-for(heading);
+}

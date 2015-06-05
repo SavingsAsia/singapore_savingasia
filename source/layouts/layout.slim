@@ -5,17 +5,14 @@ html
 
     /! Always force latest IE rendering engine or request Chrome Frame
     meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"
-
+    script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"
     /! Use title if it's in the page YAML frontmatter
+
     title = data.page.title || "Masi Group"
     link  rel="icon" type="image/png" href="./images/favicon.ico"
 
     == stylesheet_link_tag "all"
-
   body
-    == partial 'header'
-
-    div class="container-flud landing__body"
-      == yield
+    == yield
     == partial 'footer'
     == javascript_include_tag  "all"

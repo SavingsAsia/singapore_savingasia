@@ -1,36 +1,8 @@
-.landing__body {
-  margin-top: $header-container-height;
-}
-
 body {
   font-family: 'VarelaRound';
-  @include respond-to(hd){
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-    max-width: 1920px;
-  }
+  margin: 0 !important;
 }
 
 .row {
   margin: 0;
-}
-
-.about {
-  padding-top: $header-height;
-  padding-bottom: 35px;
-}
-
-.team {
-  padding-top: $header-height;
-  @include respond-to(mobile) {
-    padding-top: 20px;
-  }
-  @include respond-to(hd) {
-    padding-top: 40px;
-  }
-}
-
-.contact {
-  padding-top: $header-height;
 }

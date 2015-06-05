@@ -1,20 +1,35 @@
-$mobile-breakpoint: 1000px;
-$tablet-breakpoint: 1300px;
-$desktop-breakpoint: 1920px;
-
-
+$mobile-breakpoint: 780px;
+$tablet-breakpoint: 1200px;
+$desktop-breakpoint: 1420px;
+$desktop-hd-breakpoint: 1920px;
 
 @mixin respond-to ($media) {
-  @if $media == hd {
-    @media only screen and (min-width: $desktop-breakpoint + 1) { @content; }
+  @if $media == desktop-hd {
+    @media only screen and (min-width: $desktop-breakpoint + 1)
+                       and (max-width: $desktop-hd-breakpoint) { @content; }
+  }
+  @else if $media == desktop-uhd {
+    @media only screen and (min-width: $desktop-hd-breakpoint + 1) { @content; }
   }
   @else if $media == desktop {
-    @media only screen and (min-width: $tablet + 1) and (max-width: $desktop) { @content; }
+    @media only screen and (min-width: $tablet-breakpoint + 1)
+                       and (max-width: $desktop-breakpoint) { @content; }
   }
+
   @else if $media == tablet {
-    @media only screen and (min-width: $mobile-breakpoint + 1) and (max-width: $tablet-breakpoint) { @content; }
+    @media only screen and (min-width: $mobile-breakpoint + 1)
+                       and (max-width: $tablet-breakpoint)
+                       and (orientation: landscape) { @content; }
   }
+
   @else if $media == mobile {
-    @media only screen and (max-width: $mobile-breakpoint) { @content; }
+    @media only screen and (min-width: 768px)
+                       and (orientation: portrait) { @content; }
+  }
+
+  @else if $media == mobile-small {
+    @media only screen and (min-width: 0)
+                       and (max-width: 767px)
+                       and (orientation: portrait) { @content; }
   }
 }

@@ -1,62 +1,90 @@
 #home {
+  position: relative;
+  height: 100vh;
   @include respond-to(mobile) {
-    height: 0.8 * $section-height;
+    height: 1850px;
+    max-height: 1870px;
   }
   @include respond-to(tablet) {
-    height: 0.8 * $section-height;
+    height: 750px;
+    max-height: 823px;
   }
-  height: $section-height;
+  @include respond-to(desktop) {
+    height: 100vh;
+    max-height: 1090px;
+  }
+  @include respond-to(desktop-hd) {
+    height: 100vh;
+    max-height: 1090px;
+  }
+  @include respond-to(desktop-uhd) {
+    height: 100vh;
+    max-height: 1600px;
+  }
 }
 
 .home {
-  background: url('../images/investors.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  display: table;
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
+  background-attachment: fixed !important;
+  position: static !important;
+  z-index: -1 !important;
   text-align: center;
   height: 100%;
   width: 100%;
+  background: url('../images/landscape_md2.jpg');
+
+  @include respond-to(mobile) {
+    background: url('../images/landscape_mobile2.jpg');
+  }
+  @include respond-to(tablet) {
+    background: url('../images/landscape_md2.jpg');
+  }
+  @include respond-to(desktop) {
+    font-size: 80px;
+    background: url('../images/landscape_hd2.jpg');
+    background-size: cover;
+  }
+  @include respond-to(desktop-hd) {
+    font-size: 80px;
+    background: url('../images/landscape_hd2.jpg');
+    background-size: cover;
+  }
+  @include respond-to(desktop-uhd) {
+    font-size: 80px;
+    background: url('../images/landscape_uhd.jpg');
+  }
 }
 
 .home__wrapper {
-  @include respond-to(mobile) {
-    padding-top: 200px;
-  }
-  @include respond-to(hd) {
-    padding-top: 300px;
-  }
-  width: 50%;
-  padding-top: 30px;
+  display: table-cell;
+  vertical-align: middle;
   position: relative;
   width: 100%;
   margin: $base-spacing-unit auto;
-}
-
-.home__wrapper.skrollable-after {
-  position: relative !important;
+  @include respond-to(mobile) {
+    padding-top: 250px;
+    vertical-align: top;
+  }
+  @include respond-to(tablet) {
+    padding-top: 50px;
+    vertical-align: top;
+  }
 }
 
 .home__heading {
-  @include respond-to(mobile) {
-    font-size: 80px;
-  }
-  @include respond-to(hd) {
-    font-size: 80px;
-  }
   margin-top: 0;
   padding-bottom: 20px;
   color: $dark-brand;
-  font-size: 1.5 * $font-huge;
+  font-size: 40px;
+  @include set-font-for(heading);
 }
 
 .home__subheading {
-  @include respond-to(mobile) {
-    font-size: 55px;
-  }
-  @include respond-to(hd) {
-    font-size: 50px;
-  }
   color: $dark-brand;
   font-size: 0.8 * $font-huge;
+  @include set-font-for(subheading);
 }

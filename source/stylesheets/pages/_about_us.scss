@@ -1,66 +1,81 @@
-#about {
+#about-us {
   height: $section-height;
   @include respond-to(mobile) {
-    height: auto;
+    height: 1800px;
   }
   @include respond-to(tablet) {
-    height: auto;
+    height: 800px;
   }
-  @include respond-to(hd) {
-    height: auto;
+  @include respond-to(desktop) {
+    height: 100vh;
+  }
+  @include respond-to(desktop-hd) {
+    display: table;
+    width: 100%;
+    height: 100vh;
+  }
+  @include respond-to(desktop-uhd) {
+    display: table;
+    width: 100%;
+    height: 100vh;
   }
 }
 
 .about {
-  background-position: 50% 0px;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  background: url('../images/map.jpg');
-  padding-top: 40px;
+  position: relative;
+  background: white;
+
+  @include respond-to(mobile) {
+    padding-top: 200px;
+  }
+  @include respond-to(mobile-retina) {
+    padding-top: 200px;
+  }
+  @include respond-to(desktop) {
+    padding-top: 100px;
+  }
+  @include respond-to(desktop-hd) {
+    padding-top: 100px;
+  }
+  @include respond-to(desktop-uhd) {
+    display: table-cell;
+    vertical-align: middle;
+  }
 }
 
 .about__wrapper {
-  @include respond-to(mobile) {
-    width: 90%;
-  }
-  @include respond-to(tablet) {
-    width: 65%;
-  }
-  @include respond-to(hd) {
-    width: 65%;
-  }
   position: relative;
   z-index: 20;
   width: 56%;
   text-align: center;
   margin: auto;
+
+  @include respond-to(mobile-small) {
+    width: 90%;
+  }
+  @include respond-to(mobile) {
+    width: 90%;
+  }
+  @include respond-to(tablet) {
+    width: 75%;
+  }
+  @include respond-to(desktop-uhd) {
+    width: 50%;
+  }
 }
 
 .about__heading {
-  @include respond-to(mobile) {
-    font-size: 80px;
-  }
-  @include respond-to(hd) {
-    font-size: 80px;
-  }
   color: $dark-brand;
   font-size: 1.5 * $font-huge;
+  @include set-font-for(heading);
 }
 
 .content__box {
   margin: 2 * $base-spacing-unit 0;
+  font-size: 32px;
+  color: $dark-brand;
   p {
-    @include respond-to(mobile) {
-      font-size: 40px;
-    }
-    @include respond-to(hd) {
-      font-size: 40px;
-    }
-    font-size: 32px;
-    color: $dark-brand;
+    @include set-font-for(normal-text);
   }
 }
 

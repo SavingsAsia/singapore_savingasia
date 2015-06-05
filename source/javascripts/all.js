@@ -1,71 +1,186 @@
 //= require_tree .
 
 $(function() {
+  var $headerHeight = 0;
   var sections = [];
+  var $headerOffset = 0
+  var $teamValue = 0;
+  var $teamRowOffsetTop = 0
+  var $teamSectionHeight = 0
+  var $window = $(window);
+  var mapInstances = [];
 
-  function initScrollSpy(sections) {
-    $('.js-nav-main').find('a').each(function() {
-      sections.push($(this).attr('href'));
-    });
+  function initScrollSpy() {
+    $headerHeight = $('#header').height();
+    $aboutSectionOffsetTop =  $('#about-us').offset().top
+    $teamSectionOffsetTop = $('#team').offset().top
+    $contactSectionOffsetTop = $('#contact').offset().top
+    $headerOffset = $('#home').height() + 100;
+    $teamSectionHeight = $('#team').height()
   }
 
-  function scrollSpy(event) {
-    var activeSection;
-    var i;
-    var len;
-    var scrollPosition;
-    var $section;
-    var $scrollPosition = $(window).scrollTop();
-    var sections = event.data.sections;
-    var $navMain = $('.js-nav-main');
+  function fixedHeader() {
+    var $header = $('#header .container__header__bar');
+    var offset = $('#home').height();
 
-    for (i = 0, len = sections.length; i < len; i++) {
-      $section = $(sections[i]);
-      if ($scrollPosition >= $section.offset().top - 70) {
-        activeSection = $section.attr('id');
-      }
-    }
-    $navMain.find('a').removeClass('active');
-    return $navMain.find("a[href='#" + activeSection + "']").addClass('active');
-  }
-
-  function smoothScroll(event){
-    var offset = event.data.offset,
-        value = null;
-
-    event.preventDefault();
-
-    if (event.data.value > 0) {
-      value = event.data.value;
+    if($(this).scrollTop() > offset) {
+      $header.addClass('header--fixed');
     } else {
-      value = $($(this).attr('href')).offset().top;
+      $header.removeClass('header--fixed');
+    }
+  }
+
+  function moveElphant(event) {
+    var removeAnimationOffset = $('#about-us').offset().top;
+    var offset = event.data.offset + event.data.sectionHeight/20;
+    var $scrollTop = $(this).scrollTop();
+
+    if($scrollTop > offset) {
+      $('.team__elephant').each(function() {
+        $(this).addClass('elphant--move');
+      });
+    } else if ($scrollTop < removeAnimationOffset)  {
+      $('.team__elephant').each(function() {
+        $(this).removeClass('elphant--move');
+      });
+    }
+  }
+
+  $( window ).on( "orientationchange", function( event ) {
+    location.reload();
+  });
+
+  $pluginInstance = $('.google-map').lazyLoadGoogleMaps({
+    api_key: 'AIzaSyDlS1-sSq3TgIwDkochEakCeg4aZigmojM',
+    callback: function(container, map) {
+      var $container  = $(container);
+      var center      = new google.maps.
+        LatLng($container.attr( 'data-lat' ), $container.attr('data-lng'));
+
+      map.setOptions({
+        zoom: 16,
+        center: center,
+        scrollwheel: false,
+        scaleControl: false,
+        mapTypeControl: false,
+        navigationControl: false,
+        draggable: false
+      });
+      var marker = new google.maps.Marker({ position: center, map: map });
+      infowindow = new google.maps.InfoWindow({
+        content: $container.data('marker'),
+      });
+
+      google.maps.event.addListener(infowindow, 'domready', function(){
+        $(".gm-style-iw").next("div").hide();
+      });
+      google.maps.event.addListener(map, "tilesloaded", function() {
+        $container.parent().children().first().hide();
+      });
+
+      infowindow.open(map,marker);
+      $.data(map, 'center', center);
+      mapInstances.push(map);
+    }
+  });
+
+  $window.on('resize', $pluginInstance.debounce(1000, function() {
+   $.each(mapInstances, function() {
+     this.setCenter($.data(this,'center'));
+   });
+  }));
+
+
+  var lastId,
+    topMenu = $("#header");
+    topMenuHeight = topMenu.outerHeight()+15;
+    // All list items
+    menuItems = $("#header a, .arrow--down, .footer__wrapper--logo a");
+
+  // Anchors corresponding to menu items
+  var scrollItems = menuItems.map(function(){
+    var item = $($(this).attr("href"));
+    if (item.length) { return item; }
+  });
+
+  // Bind click handler to menu items
+  // so we can get a fancy scroll animation
+  menuItems.click(function(e) {
+    var offsetTop;
+    var href = $(this).attr("href");
+
+    if(href === "#home") {
+      offsetTop = 0;
+    } else if(href === "#about-us") {
+      offsetTop = $('#header .header__navbar').hasClass('header--fixed') ?
+        0 : topMenuHeight - 15;
+
+      offsetTop = $(href).offset().top - offsetTop;
+    } else {
+      offsetTop = $('#header .header__navbar').hasClass('header--fixed') ?
+        topMenuHeight-20 :  topMenuHeight-30;
+
+      offsetTop = $(href).offset().top - offsetTop;
     }
 
-    $('html, body').animate({
-        scrollTop: value
+    $('html, body').stop().animate({
+        scrollTop: offsetTop
     }, 500);
-  }
+    e.preventDefault();
+  });
 
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    $('[name=team]').on('click', {value: 1900}, smoothScroll);
-    $('[name=about]').on('click', {value: 959}, smoothScroll);
-    $('[name=contact]').on('click', {value: 2955}, smoothScroll);
-    $('[name=location]').on('click', {offset: 0}, smoothScroll);
-    $('[name=home]').on('click', {value: 5}, smoothScroll);
-  } else if ($(window).width() >= 1920) {
-    $('[name=team]').on('click', {value: 2140}, smoothScroll);
-    $('[name=about]').on('click', {value: 1220}, smoothScroll);
-    $('[name=contact]').on('click', {value: 3114}, smoothScroll);
-    $('[name=location]').on('click', {offset: 0}, smoothScroll);
-    $('[name=home]').on('click', {offset: 0}, smoothScroll);
-  } else {
-    skrollr.init({forceHeight: false, render: function(data) {} });
-    $(document).on('ready', initScrollSpy(sections));
-    $(window).on('scroll', {sections: sections}, scrollSpy);
-    $('[name=home]').on('click', {value: 0}, smoothScroll);
-    $('[name=team]').on('click', {value: 2100}, smoothScroll);
-    $('[name=about]').on('click', {value: 1250}, smoothScroll);
-    $('[name=contact]').on('click', {value: 3250}, smoothScroll);
-    $('[name=location]').on('click', {value: 4400}, smoothScroll);
-  }
+  // Bind to scroll
+  $(window).scroll(function(){
+     fixedHeader();
+     // Get container scroll position
+     var fromTop = $(this).scrollTop()+topMenuHeight;
+
+     // Get id of current scroll item
+     var cur = scrollItems.map(function() {
+       if ($(this).offset().top < fromTop)
+         return this;
+     });
+     // Get the id of the current element
+     cur = cur[cur.length-1];
+     var id = cur && cur.length ? cur[0].id : "";
+
+     if (lastId !== id) {
+         lastId = id;
+         // Set/remove active class
+         menuItems
+           .parent().removeClass("active")
+           .end().filter("[href=#"+id+"]").parent().addClass("active");
+     }
+  });
+
+  $('.js-singapore').mouseover(function() {
+    $(this).find('.js-overlay').css({
+      "opacity" : "0.0",
+      "transition" : "opacity 0.7s ease-in-out"
+    })
+  })
+
+  $('.js-bangkok').mouseover(function() {
+    $(this).find('.js-overlay').css({
+      "opacity" : "0.0",
+      "transition" : "opacity 0.7s ease-in-out"
+    })
+  })
+
+
+  $('.js-singapore').mouseleave(function() {
+    $(this).find('.js-overlay').css({
+      "opacity" : "0.4",
+      "transition" : "opacity 0.7s ease-in-out"
+    })
+  })
+
+  $('.js-bangkok').mouseleave(function() {
+    $(this).find('.js-overlay').css({
+      "opacity" : "0.4",
+      "transition" : "opacity 0.7s ease-in-out"
+    })
+  })
+
+  $(document).on('ready', initScrollSpy());
 });

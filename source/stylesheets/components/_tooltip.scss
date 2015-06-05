@@ -1,0 +1,63 @@
+div.tooltips {
+  display: inline;
+  font-size: 20px;
+}
+div.tooltips span {
+  position: absolute;
+  padding: 10px;
+  width: 300px;
+  color: white;
+  background: #13afec;
+  height: auto;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 15px;
+  a {
+    color: white;
+  }
+
+  @include respond-to(mobile) {
+    width: 600px;
+    font-size: 40px;
+    bottom: 50px !important;
+  }
+}
+div.tooltips span:after {
+  top: -20px;
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  width: 0; height: 0;
+  border-top: 8px solid #13afec;;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  @include respond-to(mobile-retina) {
+    border-top: 20px solid #13afec;;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    margin-left: -20px;
+  }
+  @include respond-to(mobile) {
+    border-top: 20px solid #13afec;;
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    margin-left: -20px;
+  }
+}
+div:hover.tooltips span {
+  visibility: visible;
+  opacity: 1;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -148px;
+  z-index: 999;
+  @include respond-to(mobile) {
+    margin-left: -300px;
+  }
+}
+
+.tooltip--phone {
+  padding-top: 15px;
+}

@@ -1,14 +1,51 @@
-@mixin team-member() {
-  @include respond-to(mobile) {
-    height: 220px;
-    width: 220px;
-  }
-  height: 250px;
-  width: 250px;
+@mixin team-member($name) {
   margin: auto;
   border-radius: 50%;
   border: 3px solid $light-brand;
   margin-bottom: $base-spacing-unit;
-  background-position: 50% 20% !important;
-  background-size: cover;
+  background-size: cover !important;
+  background-repeat: none !important;
+
+  @include respond-to(desktop) {
+    height: 230px;
+    width: 230px;
+    $url: '../images/#{$name}_md.jpg';
+    background: url($url);
+  }
+  @include respond-to(desktop-hd) {
+    $url: '../images/#{$name}_md.jpg';
+    background: url($url);
+    height: 250px;
+    width: 250px;
+  }
+  @include respond-to(desktop-uhd) {
+    $url: '../images/#{$name}_md.jpg';
+    background: url($url);
+    height: 300px;
+    width: 300px;
+  }
+  @include respond-to(tablet) {
+    $url: '../images/#{$name}_md.jpg';
+    background: url($url);
+    height: 250px;
+    width: 250px;
+  }
+  @include respond-to(mobile-small) {
+    $url: '../images/#{$name}_mobile.jpg';
+    background: url($url);
+    height: 200px;
+    width: 200px;
+  }
+  @include respond-to(mobile) {
+    $url: '../images/#{$name}_mobile.jpg';
+    background: url($url);
+    height: 270px;
+    width: 270px;
+  }
+  @include respond-to(mobile-retina) {
+    $url: '../images/#{$name}_md.jpg';
+    background: url($url);
+    height: 270px;
+    width: 270px;
+  }
 }
