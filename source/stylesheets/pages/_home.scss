@@ -1,33 +1,78 @@
 #home {
+  position: relative;
+  top: -20px;
+  height: $section-height;
+
+  @include respond-to(mobile-retina) {
+    height: 1800px;
+  }
   @include respond-to(mobile) {
-    height: 0.8 * $section-height;
+    height: 1800px;
   }
   @include respond-to(tablet) {
-    height: 0.8 * $section-height;
+    height: 800px;
   }
-  height: $section-height;
+  @include respond-to(tablet-retina) {
+    height: 800px;
+  }
+  @include respond-to(desktop) {
+    height: 1020px;
+  }
+  @include respond-to(desktop-hd) {
+    height: 1100px;
+  }
+  @include respond-to(desktop-uhd) {
+    height: 1620px;
+  }
 }
 
 .home {
-  background: url('../images/investors.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  display: table;
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
+  background-attachment: fixed !important;
+  position: static !important;
+  z-index: -1 !important;
   text-align: center;
   height: 100%;
   width: 100%;
+  background: url('../images/landscape_md.jpg');
+
+  @include respond-to(mobile) {
+    background: url('../images/landscape_mobile2.jpg');
+  }
+  @include respond-to(mobile-retina) {
+    background: url('../images/landscape_mobile2.jpg');
+  }
+  @include respond-to(tablet) {
+    background: url('../images/landscape_md2.jpg');
+  }
+  @include respond-to(tablet-retina) {
+    background: url('../images/landscape_hd2.jpg');
+  }
+  @include respond-to(desktop) {
+    font-size: 80px;
+    background: url('../images/landscape_md2.jpg');
+  }
+  @include respond-to(desktop-retina) {
+    font-size: 80px;
+    background: url('../images/landscape_hd2.jpg');
+  }
+  @include respond-to(desktop-hd) {
+    font-size: 80px;
+    background: url('../images/landscape_hd2.jpg');
+  }
+  @include respond-to(desktop-uhd) {
+    font-size: 80px;
+    background: url('../images/landscape_uhd.jpg');
+  }
 }
 
 .home__wrapper {
-  @include respond-to(mobile) {
-    padding-top: 200px;
-  }
-  @include respond-to(hd) {
-    padding-top: 300px;
-  }
-  width: 50%;
-  padding-top: 30px;
+  display: table-cell;
+  vertical-align: middle;
   position: relative;
   width: 100%;
   margin: $base-spacing-unit auto;
@@ -38,25 +83,30 @@
 }
 
 .home__heading {
-  @include respond-to(mobile) {
-    font-size: 80px;
-  }
-  @include respond-to(hd) {
-    font-size: 80px;
-  }
   margin-top: 0;
   padding-bottom: 20px;
   color: $dark-brand;
   font-size: 1.5 * $font-huge;
+
+  @include respond-to(mobile) {
+    font-size: 80px;
+  }
+  @include respond-to(desktop-uhd) {
+    font-size: 80px;
+  }
 }
 
 .home__subheading {
+  color: $dark-brand;
+  font-size: 0.8 * $font-huge;
+
   @include respond-to(mobile) {
     font-size: 55px;
   }
-  @include respond-to(hd) {
-    font-size: 50px;
+  @include respond-to(mobile-retina) {
+    font-size: 55px;
   }
-  color: $dark-brand;
-  font-size: 0.8 * $font-huge;
+  @include respond-to(desktop-uhd) {
+    font-size: 60px;
+  }
 }

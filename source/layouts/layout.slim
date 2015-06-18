@@ -11,11 +11,7 @@ html
     link  rel="icon" type="image/png" href="./images/favicon.ico"
 
     == stylesheet_link_tag "all"
-
   body
-    == partial 'header'
-
-    div class="container-flud landing__body"
-      == yield
+    == yield
     == partial 'footer'
     == javascript_include_tag  "all"

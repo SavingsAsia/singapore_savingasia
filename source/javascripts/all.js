@@ -1,9 +1,20 @@
 //= require_tree .
 
 $(function() {
+  var $headerHeight = 0;
   var sections = [];
+  var $headerOffset = 0
+  var $teamValue = 0;
+  var $teamRowOffsetTop = 0
+  var $teamSectionHeight = 0
 
-  function initScrollSpy(sections) {
+  function initScrollSpy() {
+    $headerHeight = $('#header').height();
+    $aboutSectionOffsetTop =  $('#about-us').offset().top
+    $teamSectionOffsetTop = $('#team').offset().top
+    $contactSectionOffsetTop = $('#contact').offset().top
+    $headerOffset = $('#home').height();
+    $teamSectionHeight = $('#team').height()
     $('.js-nav-main').find('a').each(function() {
       sections.push($(this).attr('href'));
     });
@@ -31,41 +42,49 @@ $(function() {
 
   function smoothScroll(event){
     var offset = event.data.offset,
-        value = null;
+        value = event.data.value;
 
     event.preventDefault();
 
-    if (event.data.value > 0) {
-      value = event.data.value;
-    } else {
-      value = $($(this).attr('href')).offset().top;
-    }
-
     $('html, body').animate({
         scrollTop: value
-    }, 500);
+    }, 300);
   }
 
-  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $(window).width() <= 1100 ) {
-    $('[name=team]').on('click', {value: 2006}, smoothScroll);
-    $('[name=about]').on('click', {value: 959}, smoothScroll);
-    $('[name=contact]').on('click', {value: 3017}, smoothScroll);
-    $('[name=location]').on('click', {offset: 0}, smoothScroll);
-    $('[name=home]').on('click', {value: 5}, smoothScroll);
-  } else if ($(window).width() > 1920) {
-    $('[name=team]').on('click', {value: 2140}, smoothScroll);
-    $('[name=about]').on('click', {offset: 1220}, smoothScroll);
-    $('[name=contact]').on('click', {value: 3114}, smoothScroll);
-    $('[name=location]').on('click', {offset: 0}, smoothScroll);
-    $('[name=home]').on('click', {offset: 0}, smoothScroll);
-  } else {
-    skrollr.init({forceHeight: false, render: function(data) {} });
-    $(document).on('ready', initScrollSpy(sections));
-    $(window).on('scroll', {sections: sections}, scrollSpy);
-    $('[name=home]').on('click', {value: 0}, smoothScroll);
-    $('[name=team]').on('click', {value: 2100}, smoothScroll);
-    $('[name=about]').on('click', {value: 1250}, smoothScroll);
-    $('[name=contact]').on('click', {value: 3250}, smoothScroll);
-    $('[name=location]').on('click', {value: 4400}, smoothScroll);
+  function fixedHeader(event) {
+    var $header = $('#header');
+    var offset = event.data.offset;
+
+    if($(this).scrollTop() > offset) {
+      $header.addClass('header--fixed');
+    } else {
+      $header.removeClass('header--fixed');
+    }
   }
+
+  function moveElphant(event) {
+    var removeAnimationOffset = $('#about-us').offset().top;
+    var offset = event.data.offset + event.data.sectionHeight/20;
+    var $scrollTop = $(this).scrollTop();
+
+    if($scrollTop > offset) {
+      $('.team__elephant').each(function() {
+        $(this).addClass('elphant--move');
+      });
+    } else if ($scrollTop < removeAnimationOffset)  {
+      $('.team__elephant').each(function() {
+        $(this).removeClass('elphant--move');
+      });
+    }
+  }
+
+  $(document).on('ready', initScrollSpy());
+  $(window).on('scroll', {sections: sections}, scrollSpy);
+  $(window).on('scroll', {offset: $teamSectionOffsetTop, sectionHeight: $teamSectionHeight }, moveElphant);
+  $(window).on('scroll', {offset: $headerOffset }, fixedHeader);
+  $('[name=about-init]').on('click', {value: $aboutSectionOffsetTop - $headerHeight}, smoothScroll);
+  $('[name=home]').on('click', {value: 0}, smoothScroll);
+  $('[name=team]').on('click', {value: $teamSectionOffsetTop - $headerHeight}, smoothScroll);
+  $('[name=about]').on('click', {value: $aboutSectionOffsetTop - $headerHeight}, smoothScroll);
+  $('[name=contact]').on('click', {value: $contactSectionOffsetTop - $headerHeight - 50}, smoothScroll);
 });

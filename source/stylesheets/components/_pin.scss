@@ -1,0 +1,96 @@
+.contact__pin {
+  @include respond-to(mobile) {
+    height: 60px;
+    width: 60px;
+  }
+  @include respond-to(mobile-retina) {
+    height: 60px;
+    width: 60px;
+  }
+  position: absolute !important;
+  height: 30px;
+  width: 30px;
+  background: url('../images/pin.png');
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
+}
+
+.bangkok {
+  top: 56%;
+  right: 23.4%;
+  @include respond-to(mobile) {
+    top: 57.5%;
+    right: 55%;
+  }
+  @include respond-to(mobile-retina) {
+    top: 57.5%;
+    right: 55%;
+  }
+  @include respond-to(tablet-retina) {
+    top: 54%;
+    right: 23.4%;
+  }
+  @include respond-to(tablet) {
+    top: 54%;
+    right: 23.4%;
+  }
+  @include respond-to(desktop) {
+    top: 55%;
+    right: 23.4%;
+  }
+  @include respond-to(desktop-retina) {
+    top: 55%;
+    right: 23.4%;
+  }
+  @include respond-to(desktop-hd) {
+    top: 54.5%;
+    right: 23.4%;
+  }
+  @include respond-to(desktop-uhd) {
+    top: 54%;
+    right: 23.4%;
+  }
+
+}
+
+.singapore {
+  top: 60%;
+  right: 22.4%;
+  @include respond-to(mobile) {
+    top: 63%;
+    right: 52.4%;
+  }
+  @include respond-to(mobile-retina) {
+    top: 63%;
+    right: 52.4%;
+  }
+  @include respond-to(tablet) {
+    top: 57.2%;
+    right: 22.4%;
+  }
+  @include respond-to(tablet-retina) {
+    top: 57.2%;
+    right: 22.4%;
+  }
+  @include respond-to(desktop) {
+    top: 58%;
+    right: 22.4%;
+  }
+  @include respond-to(desktop-retina) {
+    top: 58%;
+    right: 22.4%;
+  }
+  @include respond-to(desktop-hd) {
+    top: 58.5%;
+    right: 22.4%;
+  }
+  @include respond-to(desktop-uhd) {
+    top: 57%;
+    right: 22.4%;
+  }
+  @include respond-to(desktop-uhd) {
+    top: 56%;
+    right: 22.8%;
+  }
+}
+

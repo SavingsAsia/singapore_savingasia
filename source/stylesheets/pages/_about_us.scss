@@ -1,49 +1,104 @@
-#about {
+#about-us {
   height: $section-height;
-  @include respond-to(mobile) {
-    height: auto;
+  @include respond-to(desktop) {
+    height: 900px;
   }
-  @include respond-to(tablet) {
-    height: auto;
+  @include respond-to(desktop-retina) {
+    height: 900px;
   }
-  @include respond-to(hd) {
-    height: auto;
+  @include respond-to(retina) {
+    height: 800px;
+  }
+  @include respond-to(tablet-retina) {
+    height: 800px;
+  }
+  @include respond-to(desktop-hd) {
+    height: 1000px;
+  }
+  @include respond-to(desktop-uhd) {
+    height: 1600px;
   }
 }
 
 .about {
-  background-position: 50% 0px;
+  padding-top: 100px;
+  position: relative;
+  background: white;
+}
+
+.about__elphant {
+  width: 600px;
+  height: 440px;
+  position: absolute;
+  right: 0px;
+  top: 150px;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  background: url('../images/map.jpg');
-  padding-top: 40px;
+  background-size: cover !important;
+
+  @include respond-to(tablet-retina) {
+    top: 400px;
+    width: 500px;
+    height: 370px;
+    background: url('../images/elephant_md.jpg');
+  }
+  @include respond-to(tablet) {
+    top: 400px;
+    width: 500px;
+    height: 370px;
+    background: url('../images/elephant_md.jpg');
+  }
+  @include respond-to(desktop) {
+    background: url('../images/elephant_md.jpg');
+  }
+  @include respond-to(desktop-retina) {
+    background: url('../images/elephant_hd.jpg');
+  }
+  @include respond-to(desktop-hd) {
+    background: url('../images/elephant_md.jpg');
+  }
+  @include respond-to(desktop-uhd) {
+    background: url('../images/elephant_hd.jpg');
+  }
 }
 
 .about__wrapper {
-  @include respond-to(mobile) {
-    width: 90%;
-  }
-  @include respond-to(tablet) {
-    width: 65%;
-  }
-  @include respond-to(hd) {
-    width: 65%;
-  }
   position: relative;
   z-index: 20;
   width: 56%;
   text-align: center;
   margin: auto;
+
+  @include respond-to(mobile) {
+    width: 90%;
+  }
+  @include respond-to(mobile-retina) {
+    width: 90%;
+  }
+  @include respond-to(tablet) {
+    width: 75%;
+  }
+  @include respond-to(tablet-retina) {
+    width: 75%;
+  }
+  @include respond-to(desktop-uhd) {
+    width: 50%;
+  }
 }
 
 .about__heading {
   @include respond-to(mobile) {
     font-size: 80px;
   }
-  @include respond-to(hd) {
+  @include respond-to(mobile-retina) {
+    font-size: 80px;
+  }
+  @include respond-to(tablet) {
+    font-size: 48px;
+  }
+  @include respond-to(tablet-retina) {
+    font-size: 48px;
+  }
+  @include respond-to(desktop-uhd) {
     font-size: 80px;
   }
   color: $dark-brand;
@@ -56,8 +111,17 @@
     @include respond-to(mobile) {
       font-size: 40px;
     }
-    @include respond-to(hd) {
+    @include respond-to(mobile-retina) {
       font-size: 40px;
+    }
+    @include respond-to(tablet) {
+      font-size: 24px;
+    }
+    @include respond-to(tablet-retina) {
+      font-size: 24px;
+    }
+    @include respond-to(desktop-uhd) {
+      font-size: 50px;
     }
     font-size: 32px;
     color: $dark-brand;

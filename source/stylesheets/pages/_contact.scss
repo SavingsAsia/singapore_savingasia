@@ -1,41 +1,64 @@
 #contact {
-  height: $section-height;
+  height: 1200px;
+  overflow: hidden;
+  text-align: center;
   @include respond-to(mobile) {
-    height: 900px;
+    height: 1300px
   }
-  @include respond-to(tablet) {
-    height: 900px;
+  @include respond-to(mobile-retina) {
+    height: 1500px;
   }
-  @include respond-to(hd) {
-    height: 900px;
+  @include respond-to(tablet-retina) {
+    height: 1300px;
+  }
+  @include respond-to(tablet-retina) {
+    height: 1300px;
+  }
+  @include respond-to(desktop-uhd) {
+    height: 1600px;
   }
 }
 
 .contact {
+  margin: auto;
   height: inherit;
   position: relative;
-  background-size: cover;
-  background: url('../images/contact_us.jpg');
-  background-position: 56% 0%;
+  background: url('../images/map.svg');
+  max-width: 1200px;
+  @include respond-to(mobile-retina) {
+    background: url('../images/map_iphone_transp.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  @include respond-to(mobile) {
+    background: url('../images/map_iphone_transp.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  background-size: 100% 100%;
   padding: 40px auto;
   z-index: 20;
-
-  @include respond-to(tablet) {
-    background-position: 56% 0%;
-  }
 }
 
 .contact__heading {
   @include respond-to(mobile) {
     font-size: 80px;
   }
-  @include respond-to(hd) {
+  @include respond-to(mobile-retina) {
+    font-size: 80px;
+  }
+  @include respond-to(tablet-retina) {
+    font-size: 48px;
+  }
+  @include respond-to(tablet) {
+    font-size: 48px;
+  }
+  @include respond-to(desktop-uhd) {
     font-size: 80px;
   }
   margin: 0;
   padding-top: 40px;
   padding-bottom: 25px;
-  color: $light-brand;
   font-size: 1.5 * $font-huge;
 }
 
@@ -43,30 +66,43 @@
   position: relative;
   padding-bottom: 20px;
   margin: $base-spacing-unit;
-  padding: $base-spacing-unit;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 1);
   border-radius: 25px;
   p {
-    @include respond-to(mobile) {
-      font-size: 50px;
-    }
-    @include respond-to(hd) {
-      font-size: 50px;
-    }
     margin: 5px 0;
     font-size: 30px;
     color: $dark-brand;
+
+    @include respond-to(mobile) {
+      font-size: 50px;
+    }
+    @include respond-to(mobile-retina) {
+      font-size: 50px;
+    }
+    @include respond-to(tablet) {
+      font-size: 24px;
+    }
+    @include respond-to(tablet-retina) {
+      font-size: 24px;
+    }
+    @include respond-to(desktop-uhd) {
+      font-size: 40px;
+    }
   }
   a {
-    @include respond-to(mobile) {
-      font-size: 40px;
-    }
-    @include respond-to(hd) {
-      font-size: 40px;
-    }
     margin: 5px 0;
     font-size: $font-large;
     color: $dark-brand;
+
+    @include respond-to(mobile) {
+      font-size: 40px;
+    }
+    @include respond-to(mobile-retina) {
+      font-size: 40px;
+    }
+    @include respond-to(desktop-uhd) {
+      font-size: 40px;
+    }
   }
 }
 

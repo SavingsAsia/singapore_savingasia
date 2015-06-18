@@ -1,13 +1,17 @@
 @import 'mixins/rwd';
+
 .container__header {
   display: table;
   z-index: 100;
-  position: fixed;
-  top: 0;
   background: white;
   display: table;
   width: 100%;
   height: $header-container-height;
+}
+
+.header--fixed {
+  position: fixed;
+  top: 0px;
 }
 
 .container__header__bar {
@@ -22,13 +26,34 @@
   max-width: 600px;
 
   @include respond-to(mobile) {
-    width: 600px;
+    width: 450px;
+  }
+  @include respond-to(mobile-retina) {
+    width: 450px;
+  }
+  @include respond-to(tablet) {
+    width: 240px;
+    padding-bottom: 10px;
+  }
+  @include respond-to(tablet-retina) {
+    width: 240px;
+    padding-bottom: 10px;
   }
   @include respond-to(desktop) {
-    width: 55%;
+    width: 240px;
+    padding-bottom: 10px;
   }
-  @include respond-to(hd) {
-    width: 50%;
+  @include respond-to(desktop-retina) {
+    padding-bottom: 10px;
+    width: 240px;
+  }
+  @include respond-to(desktop-hd) {
+    padding-bottom: 10px;
+    width: 240px;
+  }
+  @include respond-to(desktop-uhd) {
+    padding-bottom: 10px;
+    width: 330px;
   }
 }
 
@@ -48,15 +73,25 @@
   font-family: 'VarelaRound';
   font-size: $font-large;
 
-  @include respond-to(hd) {
-    float: none;
-  }
-  @include respond-to(tablet) {
-    top: 0px;
-  }
   @include respond-to(mobile) {
     top: 0px;
     width: 100%;
+    li {
+      a {
+        font-size: 65px;
+      }
+    }
+  }
+  @include respond-to(mobile-retina) {
+    top: 0px;
+    width: 100%;
+    li {
+      a {
+        font-size: 65px;
+      }
+    }
+  }
+  @include respond-to(desktop-uhd) {
     li {
       a {
         font-size: 40px;
@@ -88,6 +123,11 @@
 .header__wrapper--logo {
   @include respond-to(mobile) {
     text-align: center;
+    padding-bottom: 20px;
+  }
+  @include respond-to(mobile-retina) {
+    text-align: center;
+    padding-bottom: 20px;
   }
 
   text-align: left;
@@ -100,11 +140,21 @@
   @include respond-to(mobile) {
     text-align: center;
   }
+
+  @include respond-to(mobile-retina) {
+    text-align: center;
+  }
 }
 
 .navbar-nav {
   li {
     @include respond-to(mobile) {
+      float: none !important;
+      display: inline-block !important;
+    }
+  }
+  li {
+    @include respond-to(mobile-retina) {
       float: none !important;
       display: inline-block !important;
     }

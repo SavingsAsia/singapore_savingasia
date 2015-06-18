@@ -6,17 +6,47 @@
 @import "helpers/variables";
 
 @import "bootstrap-sprockets";
-@import "bootstrap";
+/*!
+ * Bootstrap v3.3.5 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// Reset and dependencies
+
+// Core CSS
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/grid";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+
+// Components
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+@import "animations/elephant";
+@import "vendor/hint";
+
+// Utility classes
+@import "bootstrap/responsive-utilities";
 @import "helpers/fonts";
 
 @import "core/variables";
 @import "core/layout";
+@import "font/fontello";
 
 @import "layout/header";
 @import "layout/footer";
 
 @import "components/button";
+@import "components/pin";
+@import "components/tooltip";
 @import "components/overlay";
+@import "components/arrow";
 @import "helpers/position";
 
 @import "pages/home";

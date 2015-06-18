@@ -10,7 +10,17 @@
 
 .footer__logo {
   padding-top: 10px;
-  width: 30%;
+  max-width: 320px;
+  width: 50%;
+  @include respond-to(desktop) {
+    width: 220px;
+  }
+  @include respond-to(desktop-retina) {
+    width: 220px;
+  }
+  @include respond-to(desktop-hd) {
+    width: 220px;
+  }
 }
 
 .footer__brand {
