@@ -1,5 +1,5 @@
-$mobile-breakpoint: 1000px;
-$tablet-breakpoint: 1100px;
+$mobile-breakpoint: 780px;
+$tablet-breakpoint: 1200px;
 $desktop-breakpoint: 1520px;
 $desktop-hd-breakpoint: 1920px;
 
@@ -27,26 +27,28 @@ $desktop-hd-breakpoint: 1920px;
 
   @else if $media == tablet-retina {
     @media only screen and (min-width: $mobile-breakpoint + 1)
-                       and (max-width: $tablet-breakpoint)
                        and (-webkit-min-device-pixel-ratio: 2)
+                       and (orientation: landscape)
                        and (-webkit-max-device-pixel-ratio: 3) { @content; }
   }
 
   @else if $media == tablet {
     @media only screen and (min-width: $mobile-breakpoint + 1)
-                       and (max-width: $tablet-breakpoint)
+                       and (orientation: landscape)
                        and (-webkit-min-device-pixel-ratio: 1)
                        and (-webkit-max-device-pixel-ratio: 1.9){ @content; }
   }
 
   @else if $media == mobile-retina {
-    @media (min-width: 0) and (max-width: $mobile-breakpoint)
-                          and (-webkit-min-device-pixel-ratio: 2)
-                          and (-webkit-max-device-pixel-ratio: 3) { @content; }
+    @media only screen and (min-width: 0)
+                       and (orientation: portrait)
+                       and (-webkit-min-device-pixel-ratio: 2)
+                       and (-webkit-max-device-pixel-ratio: 3) { @content; }
   }
   @else if $media == mobile {
-    @media (min-width: 0) and (max-width: $mobile-breakpoint)
-                          and (-webkit-min-device-pixel-ratio: 1)
-                          and (-webkit-max-device-pixel-ratio: 1.9) { @content; }
+    @media only screen and (min-width: 0)
+                       and (orientation: portrait)
+                       and (-webkit-min-device-pixel-ratio: 1)
+                       and (-webkit-max-device-pixel-ratio: 1.9) { @content; }
   }
 }
