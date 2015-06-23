@@ -90,11 +90,14 @@ $(function() {
 
       map.setOptions({ zoom: 16, center: center, scrollwheel: false, navigationControl: false });
       var marker = new google.maps.Marker({ position: center, map: map });
-      infowindow = new google.maps.InfoWindow({content: $container.data('marker') });
-
-      google.maps.event.addListener(marker, "click", function() {
-        infowindow.open(map,marker);
+      infowindow = new google.maps.InfoWindow({
+        content: $container.data('marker'),
       });
+
+       google.maps.event.addListener(infowindow, 'domready', function(){
+        $(".gm-style-iw").next("div").hide();
+      });
+
       infowindow.open(map,marker);
       $.data(map, 'center', center);
       mapInstances.push(map);
