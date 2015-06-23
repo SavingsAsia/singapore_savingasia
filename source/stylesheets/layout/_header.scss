@@ -77,15 +77,21 @@
   @include respond-to(mobile) {
     top: 0px;
     width: 100%;
+    padding-bottom: 15px;
     li {
       a {
         font-size: 65px;
+      }
+      a:hover {
+        color: $dark-brand;
+        background: inherit;
       }
     }
   }
   @include respond-to(mobile-retina) {
     top: 0px;
     width: 100%;
+    padding-bottom: 15px;
     li {
       a {
         font-size: 65px;

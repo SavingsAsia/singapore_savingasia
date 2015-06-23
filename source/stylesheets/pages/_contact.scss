@@ -3,10 +3,10 @@
   overflow: hidden;
   text-align: center;
   @include respond-to(mobile) {
-    height: 1300px
+    height: 100vh;
   }
   @include respond-to(mobile-retina) {
-    height: 1500px;
+    height: 100vh;
   }
   @include respond-to(tablet-retina) {
     height: 1300px;
@@ -26,11 +26,13 @@
   background: url('../images/map.svg');
   max-width: 1200px;
   @include respond-to(mobile-retina) {
+    padding-top: 350px;
     background: url('../images/map_iphone_transp.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }
   @include respond-to(mobile) {
+    padding-top: 350px;
     background: url('../images/map_iphone_transp.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -66,7 +68,7 @@
   position: relative;
   padding-bottom: 20px;
   margin: $base-spacing-unit;
-  background: rgba(255, 255, 255, 1);
+  background: transparent;
   border-radius: 25px;
   p {
     margin: 5px 0;

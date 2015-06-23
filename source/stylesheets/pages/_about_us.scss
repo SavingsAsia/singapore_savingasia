@@ -1,16 +1,22 @@
 #about-us {
   height: $section-height;
+  @include respond-to(mobile) {
+    height: 100vh;
+  }
+  @include respond-to(mobile-retina) {
+    height: 100vh;
+  }
+  @include respond-to(tablet) {
+    height: 800px;
+  }
+  @include respond-to(tablet-retina) {
+    height: 800px;
+  }
   @include respond-to(desktop) {
     height: 900px;
   }
   @include respond-to(desktop-retina) {
     height: 900px;
-  }
-  @include respond-to(retina) {
-    height: 800px;
-  }
-  @include respond-to(tablet-retina) {
-    height: 800px;
   }
   @include respond-to(desktop-hd) {
     height: 1000px;
@@ -21,6 +27,12 @@
 }
 
 .about {
+  @include respond-to(mobile) {
+    padding-top: 200px;
+  }
+  @include respond-to(mobile-retina) {
+    padding-top: 200px;
+  }
   padding-top: 100px;
   position: relative;
   background: white;

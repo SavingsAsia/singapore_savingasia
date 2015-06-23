@@ -1,8 +1,6 @@
 #home {
   position: relative;
-  top: -20px;
-  height: $section-height;
-
+  height: 100vh;
   @include respond-to(mobile-retina) {
     height: 100vh;
   }
@@ -13,16 +11,16 @@
     height: 100vh;
   }
   @include respond-to(tablet-retina) {
-    height: 800px;
+    height: 100vh;
   }
   @include respond-to(desktop) {
-    height: 1020px;
+    height: 100vh;
   }
   @include respond-to(desktop-hd) {
-    height: 1100px;
+    height: 100vh;
   }
   @include respond-to(desktop-uhd) {
-    height: 1620px;
+    height: 100vh;
   }
 }
 

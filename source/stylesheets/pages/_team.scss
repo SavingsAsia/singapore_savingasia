@@ -6,11 +6,15 @@
   @include respond-to(desktop-retina) {
     padding-top: 100px;
   }
+  @include respond-to(mobile-retina) {
+    display: table;
+  }
 }
 
 .team {
   z-index: 20;
   position: relative;
+  height: auto;
 
   background: #3b7db7; /* Old browsers */
   background: -moz-linear-gradient(-45deg, #3b7db7 31%, #a1c96e 69%); /* FF3.6+ */
@@ -21,6 +25,16 @@
   background: linear-gradient(135deg, #3b7db7 31%,#a1c96e 69%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b7db7', endColorstr='#a1c96e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
+  @include respond-to(mobile) {
+    height: 100vh;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  @include respond-to(mobile-retina) {
+    height: 100vh;
+    display: table-cell;
+    vertical-align: middle;
+  }
   @include respond-to(tablet) {
     height: auto;
   }

@@ -48,7 +48,7 @@ $(function() {
 
     $('html, body').animate({
         scrollTop: value
-    }, 300);
+    }, 600);
   }
 
   function fixedHeader(event) {
@@ -79,12 +79,12 @@ $(function() {
   }
 
   $(document).on('ready', initScrollSpy());
-  $(window).on('scroll', {sections: sections}, scrollSpy);
-  $(window).on('scroll', {offset: $teamSectionOffsetTop, sectionHeight: $teamSectionHeight }, moveElphant);
+  //$(window).on('scroll', {sections: sections}, scrollSpy);
+  //$(window).on('scroll', {offset: $teamSectionOffsetTop, sectionHeight: $teamSectionHeight }, moveElphant);
   $(window).on('scroll', {offset: $headerOffset }, fixedHeader);
   $('[name=about-init]').on('click', {value: $aboutSectionOffsetTop - $headerHeight}, smoothScroll);
   $('[name=home]').on('click', {value: 0}, smoothScroll);
   $('[name=team]').on('click', {value: $teamSectionOffsetTop - $headerHeight}, smoothScroll);
   $('[name=about]').on('click', {value: $aboutSectionOffsetTop - $headerHeight}, smoothScroll);
-  $('[name=contact]').on('click', {value: $contactSectionOffsetTop - $headerHeight - 50}, smoothScroll);
+  $('[name=contact]').on('click', {value: $contactSectionOffsetTop - $headerHeight}, smoothScroll);
 });
