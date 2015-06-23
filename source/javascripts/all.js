@@ -1,5 +1,6 @@
 //= require_tree .
 
+
 $(function() {
   var $headerHeight = 0;
   var sections = [];
@@ -7,6 +8,8 @@ $(function() {
   var $teamValue = 0;
   var $teamRowOffsetTop = 0
   var $teamSectionHeight = 0
+  var $window = $(window);
+  var mapInstances = [];
 
   function initScrollSpy() {
     $headerHeight = $('#header').height();
@@ -48,7 +51,7 @@ $(function() {
 
     $('html, body').animate({
         scrollTop: value
-    }, 600);
+    }, 300);
   }
 
   function fixedHeader(event) {
@@ -78,13 +81,40 @@ $(function() {
     }
   }
 
+  $pluginInstance = $('.google-map').lazyLoadGoogleMaps({
+    api_key: 'AIzaSyDlS1-sSq3TgIwDkochEakCeg4aZigmojM',
+    callback: function(container, map) {
+      var $container  = $(container);
+      var center      = new google.maps.
+        LatLng($container.attr( 'data-lat' ), $container.attr('data-lng'));
+
+      map.setOptions({ zoom: 16, center: center, scrollwheel: false, navigationControl: false });
+      var marker = new google.maps.Marker({ position: center, map: map });
+      infowindow = new google.maps.InfoWindow({content: $container.data('marker') });
+
+      google.maps.event.addListener(marker, "click", function() {
+        infowindow.open(map,marker);
+      });
+      infowindow.open(map,marker);
+      $.data(map, 'center', center);
+      mapInstances.push(map);
+    }
+  });
+
+  $window.on('resize', $pluginInstance.debounce(1000, function() {
+   $.each(mapInstances, function() {
+     this.setCenter($.data(this,'center'));
+   });
+  }));
+
   $(document).on('ready', initScrollSpy());
-  //$(window).on('scroll', {sections: sections}, scrollSpy);
-  //$(window).on('scroll', {offset: $teamSectionOffsetTop, sectionHeight: $teamSectionHeight }, moveElphant);
-  $(window).on('scroll', {offset: $headerOffset }, fixedHeader);
+  $window.on('scroll', {sections: sections}, scrollSpy);
+  $window.on('scroll', {offset: $teamSectionOffsetTop, sectionHeight: $teamSectionHeight }, moveElphant);
+  $window.on('scroll', {offset: $headerOffset }, fixedHeader);
+
   $('[name=about-init]').on('click', {value: $aboutSectionOffsetTop - $headerHeight}, smoothScroll);
   $('[name=home]').on('click', {value: 0}, smoothScroll);
   $('[name=team]').on('click', {value: $teamSectionOffsetTop - $headerHeight}, smoothScroll);
   $('[name=about]').on('click', {value: $aboutSectionOffsetTop - $headerHeight}, smoothScroll);
-  $('[name=contact]').on('click', {value: $contactSectionOffsetTop - $headerHeight}, smoothScroll);
+  $('[name=contact]').on('click', {value: $contactSectionOffsetTop - $headerHeight - 50}, smoothScroll);
 });
