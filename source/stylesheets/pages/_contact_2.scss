@@ -45,6 +45,12 @@
   background-size: 100% 100%;
   padding: 40px auto;
   z-index: 20;
+
+  .google-map {
+    width: 50%;
+    height: 100vh;
+    display: inline-block;
+  }
 }
 
 .contact__heading {
