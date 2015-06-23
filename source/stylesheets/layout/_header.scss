@@ -117,14 +117,14 @@
       background: inherit;
     }
     a:hover {
-      color: #00b3f3;
+      color: $color-text-brand;
       background: inherit;
     }
   }
 }
 
 .active {
-  color: #00b3f3 !important;
+  color: $color-text-brand !important;
 }
 
 .header__wrapper--logo {

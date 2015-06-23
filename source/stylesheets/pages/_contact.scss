@@ -43,25 +43,26 @@
 }
 
 .contact__heading {
-  @include respond-to(mobile) {
-    font-size: 80px;
-  }
-  @include respond-to(mobile-retina) {
-    font-size: 80px;
-  }
-  @include respond-to(tablet-retina) {
-    font-size: 48px;
-  }
-  @include respond-to(tablet) {
-    font-size: 48px;
-  }
-  @include respond-to(desktop-uhd) {
-    font-size: 80px;
-  }
   margin: 0;
   padding-top: 40px;
   padding-bottom: 25px;
   font-size: 1.5 * $font-huge;
+
+  @include respond-to(mobile) {
+    font-size: 80px;
+  }
+  @include respond-to(tablet) {
+    font-size: $tablet-heading;
+  }
+  @include respond-to(desktop) {
+    font-size: $desktop-heading;
+  }
+  @include respond-to(desktop-hd) {
+    font-size: $desktop-hd-heading;
+  }
+  @include respond-to(desktop-uhd) {
+    font-size: 80px;
+  }
 }
 
 .contact__box {
@@ -76,35 +77,51 @@
     color: $dark-brand;
 
     @include respond-to(mobile) {
-      font-size: 50px;
+      font-size: 55px;
     }
     @include respond-to(mobile-retina) {
-      font-size: 50px;
+      font-size: 55px;
     }
     @include respond-to(tablet) {
-      font-size: 24px;
+      font-size: $tablet-subheading;
     }
-    @include respond-to(tablet-retina) {
-      font-size: 24px;
+    @include respond-to(desktop) {
+      font-size: $desktop-subheading;
+    }
+    @include respond-to(desktop-hd) {
+      font-size: $desktop-hd-subheading;
     }
     @include respond-to(desktop-uhd) {
-      font-size: 40px;
+      font-size: 60px;
     }
   }
   a {
     margin: 5px 0;
     font-size: $font-large;
     color: $dark-brand;
+    &:hover {
+      color: $color-text-brand;
+    }
 
     @include respond-to(mobile) {
-      font-size: 40px;
+      font-size: 55px;
     }
     @include respond-to(mobile-retina) {
-      font-size: 40px;
+      font-size: 55px;
+    }
+    @include respond-to(tablet) {
+      font-size: $tablet-subheading -3px;
+    }
+    @include respond-to(desktop) {
+      font-size: $desktop-subheading -3px;
+    }
+    @include respond-to(desktop-hd) {
+      font-size: $desktop-hd-subheading -3px;
     }
     @include respond-to(desktop-uhd) {
-      font-size: 40px;
+      font-size: 60px;
     }
+
   }
 }
 
