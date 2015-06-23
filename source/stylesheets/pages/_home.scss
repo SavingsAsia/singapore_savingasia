@@ -4,13 +4,13 @@
   height: $section-height;
 
   @include respond-to(mobile-retina) {
-    height: 1800px;
+    height: 100vh;
   }
   @include respond-to(mobile) {
-    height: 1800px;
+    height: 100vh;
   }
   @include respond-to(tablet) {
-    height: 800px;
+    height: 100vh;
   }
   @include respond-to(tablet-retina) {
     height: 800px;

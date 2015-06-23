@@ -26,41 +26,6 @@
   background: white;
 }
 
-.about__elphant {
-  width: 600px;
-  height: 440px;
-  position: absolute;
-  right: 0px;
-  top: 150px;
-  background-repeat: no-repeat;
-  background-size: cover !important;
-
-  @include respond-to(tablet-retina) {
-    top: 400px;
-    width: 500px;
-    height: 370px;
-    background: url('../images/elephant_md.jpg');
-  }
-  @include respond-to(tablet) {
-    top: 400px;
-    width: 500px;
-    height: 370px;
-    background: url('../images/elephant_md.jpg');
-  }
-  @include respond-to(desktop) {
-    background: url('../images/elephant_md.jpg');
-  }
-  @include respond-to(desktop-retina) {
-    background: url('../images/elephant_hd.jpg');
-  }
-  @include respond-to(desktop-hd) {
-    background: url('../images/elephant_md.jpg');
-  }
-  @include respond-to(desktop-uhd) {
-    background: url('../images/elephant_hd.jpg');
-  }
-}
-
 .about__wrapper {
   position: relative;
   z-index: 20;
