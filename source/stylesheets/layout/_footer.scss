@@ -8,14 +8,26 @@
   background: white;
 }
 
+.footer__wrapper--logo {
+  @include respond-to(mobile-small) {
+    text-align: center;
+  }
+}
+
+.footer__wrapper--brand {
+  @include respond-to(mobile-small) {
+    text-align: center;
+  }
+}
+
 .footer__logo {
   padding-top: 10px;
   max-width: 320px;
   width: 50%;
-  @include respond-to(desktop) {
-    width: 220px;
+  @include respond-to(mobile-small) {
+    width: 200px;
   }
-  @include respond-to(desktop-retina) {
+  @include respond-to(desktop) {
     width: 220px;
   }
   @include respond-to(desktop-hd) {
@@ -24,7 +36,10 @@
 }
 
 .footer__brand {
- padding: 20px;
- margin: 0px;
- text-align: right;
+  padding: 20px;
+  margin: 0px;
+  text-align: right;
+  @include respond-to(mobile-small) {
+    text-align: center;
+  }
 }

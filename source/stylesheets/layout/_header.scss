@@ -24,8 +24,9 @@
 }
 
 .header__logo {
-  max-width: 600px;
-
+  @include respond-to(mobile-small) {
+    max-width: 200px;
+  }
   @include respond-to(mobile) {
     width: 450px;
   }
@@ -36,17 +37,9 @@
     width: 240px;
     padding-bottom: 10px;
   }
-  @include respond-to(tablet-retina) {
-    width: 240px;
-    padding-bottom: 10px;
-  }
   @include respond-to(desktop) {
     width: 240px;
     padding-bottom: 10px;
-  }
-  @include respond-to(desktop-retina) {
-    padding-bottom: 10px;
-    width: 240px;
   }
   @include respond-to(desktop-hd) {
     padding-bottom: 10px;
@@ -73,6 +66,21 @@
   color: $dark-brand;
   font-family: 'VarelaRound';
   font-size: $font-large;
+
+  @include respond-to(mobile-small) {
+    width: 100%;
+    li {
+      width: 33%;
+      display: inline-block !important;
+      a {
+        font-size: $mobile-small-heading - 5;
+      }
+      a:hover {
+        color: $dark-brand;
+        background: inherit;
+      }
+    }
+  }
 
   @include respond-to(mobile) {
     top: 0px;
@@ -117,14 +125,14 @@
       background: inherit;
     }
     a:hover {
-      color: #00b3f3;
+      color: $color-text-brand;
       background: inherit;
     }
   }
 }
 
 .active {
-  color: #00b3f3 !important;
+  color: $color-text-brand !important;
 }
 
 .header__wrapper--logo {
@@ -132,6 +140,12 @@
   padding-left: 10px;
   display: inline;
   line-height: 50px;
+
+  @include respond-to(mobile-small) {
+    line-height: 0px;
+    text-align: center;
+    float: none !important;
+  }
 
   @include respond-to(mobile) {
     text-align: center;

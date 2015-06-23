@@ -14,16 +14,10 @@
     color: white;
   }
 
-  @include respond-to(tablet-retina) {
-    font-size: 120px;
-  }
   @include respond-to(tablet) {
     font-size: 120px;
   }
   @include respond-to(desktop) {
-    font-size: 120px;
-  }
-  @include respond-to(desktop-retina) {
     font-size: 120px;
   }
   @include respond-to(desktop-hd) {
@@ -33,5 +27,15 @@
     position: relative;
     top: 100px;
     font-size: 220px;
+  }
+  @include respond-to(mobile) {
+    position: relative;
+    top: 100px;
+    font-size: 220px;
+  }
+  @include respond-to(mobile-small) {
+    position: relative;
+    top: 100px;
+    font-size: 120px;
   }
 }

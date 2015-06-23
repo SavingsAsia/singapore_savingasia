@@ -7,19 +7,13 @@
     height: 100vh;
   }
   @include respond-to(tablet) {
-    height: 800px;
-  }
-  @include respond-to(tablet-retina) {
-    height: 800px;
+    height: 100vh;
   }
   @include respond-to(desktop) {
-    height: 900px;
-  }
-  @include respond-to(desktop-retina) {
-    height: 900px;
+    height: 100vh;
   }
   @include respond-to(desktop-hd) {
-    height: 1000px;
+    height: 100vh;
   }
   @include respond-to(desktop-uhd) {
     height: 1600px;
@@ -45,6 +39,9 @@
   text-align: center;
   margin: auto;
 
+  @include respond-to(mobile-small) {
+    width: 90%;
+  }
   @include respond-to(mobile) {
     width: 90%;
   }
@@ -52,9 +49,6 @@
     width: 90%;
   }
   @include respond-to(tablet) {
-    width: 75%;
-  }
-  @include respond-to(tablet-retina) {
     width: 75%;
   }
   @include respond-to(desktop-uhd) {
@@ -63,6 +57,12 @@
 }
 
 .about__heading {
+  color: $dark-brand;
+  font-size: 1.5 * $font-huge;
+  @include respond-to(mobile-small) {
+    font-size: $mobile-small-heading;
+    font-weight: bold;
+  }
   @include respond-to(mobile) {
     font-size: 80px;
   }
@@ -70,21 +70,24 @@
     font-size: 80px;
   }
   @include respond-to(tablet) {
-    font-size: 48px;
+    font-size: $tablet-heading;
   }
-  @include respond-to(tablet-retina) {
-    font-size: 48px;
+  @include respond-to(desktop) {
+    font-size: $desktop-heading;
   }
-  @include respond-to(desktop-uhd) {
-    font-size: 80px;
+  @include respond-to(desktop-hd) {
+    font-size: $desktop-hd-heading;
   }
-  color: $dark-brand;
-  font-size: 1.5 * $font-huge;
 }
 
 .content__box {
   margin: 2 * $base-spacing-unit 0;
+  font-size: 32px;
+  color: $dark-brand;
   p {
+    @include respond-to(mobile-small) {
+      font-size: $mobile-small-heading;
+    }
     @include respond-to(mobile) {
       font-size: 40px;
     }
@@ -92,16 +95,14 @@
       font-size: 40px;
     }
     @include respond-to(tablet) {
-      font-size: 24px;
+      font-size: $tablet-subheading;
     }
-    @include respond-to(tablet-retina) {
-      font-size: 24px;
+    @include respond-to(desktop) {
+      font-size: $desktop-subheading;
     }
-    @include respond-to(desktop-uhd) {
-      font-size: 50px;
+    @include respond-to(desktop-hd) {
+      font-size: $desktop-hd-subheading;
     }
-    font-size: 32px;
-    color: $dark-brand;
   }
 }
 

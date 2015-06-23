@@ -18,6 +18,10 @@
 .bangkok {
   top: 56%;
   right: 23.4%;
+  @include respond-to(mobile-small) {
+    top: 58.5%;
+    right: 54.4%;
+  }
   @include respond-to(mobile) {
     top: 57.5%;
     right: 55%;
@@ -56,6 +60,10 @@
 .singapore {
   top: 60%;
   right: 22.4%;
+  @include respond-to(mobile-small) {
+    top: 63.5%;
+    right: 51.4%;
+  }
   @include respond-to(mobile) {
     top: 63%;
     right: 52.4%;

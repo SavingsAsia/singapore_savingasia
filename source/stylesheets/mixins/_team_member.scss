@@ -1,15 +1,16 @@
 @mixin team-member($name) {
+  margin: auto;
+  border-radius: 50%;
+  border: 3px solid $light-brand;
+  margin-bottom: $base-spacing-unit;
+  background-size: cover !important;
+  background-repeat: none !important;
+
   @include respond-to(desktop) {
     height: 230px;
     width: 230px;
     $url: '../images/#{$name}_md.jpg';
     background: url($url);
-  }
-  @include respond-to(desktop-retina) {
-    $url: '../images/#{$name}_md.jpg';
-    background: url($url);
-    height: 230px;
-    width: 230px;
   }
   @include respond-to(desktop-hd) {
     $url: '../images/#{$name}_md.jpg';
@@ -29,11 +30,11 @@
     height: 250px;
     width: 250px;
   }
-  @include respond-to(tablet-retina) {
-    $url: '../images/#{$name}_md.jpg';
+  @include respond-to(mobile-small) {
+    $url: '../images/#{$name}_mobile.jpg';
     background: url($url);
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
   }
   @include respond-to(mobile) {
     $url: '../images/#{$name}_mobile.jpg';
@@ -47,10 +48,4 @@
     height: 270px;
     width: 270px;
   }
-  margin: auto;
-  border-radius: 50%;
-  border: 3px solid $light-brand;
-  margin-bottom: $base-spacing-unit;
-  background-size: cover !important;
-  background-repeat: none !important;
 }
