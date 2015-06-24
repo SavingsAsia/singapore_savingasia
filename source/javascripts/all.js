@@ -1,6 +1,5 @@
 //= require_tree .
 
-
 $(function() {
   var $headerHeight = 0;
   var sections = [];
@@ -18,46 +17,11 @@ $(function() {
     $contactSectionOffsetTop = $('#contact').offset().top
     $headerOffset = $('#home').height() + 100;
     $teamSectionHeight = $('#team').height()
-    $('.js-nav-main').find('a').each(function() {
-      sections.push($(this).attr('href'));
-    });
   }
 
-  function scrollSpy(event) {
-    var activeSection;
-    var i;
-    var len;
-    var scrollPosition;
-    var $section;
-    var $scrollPosition = $(window).scrollTop();
-    var sections = event.data.sections;
-    var $navMain = $('.js-nav-main');
-
-    for (i = 0, len = sections.length; i < len; i++) {
-      $section = $(sections[i]);
-      if ($scrollPosition >= $section.offset().top - 70) {
-        activeSection = $section.attr('id');
-      }
-    }
-    $navMain.find('a').removeClass('active');
-    return $navMain.find("a[href='#" + activeSection + "']").addClass('active');
-  }
-
-  function smoothScroll(event){
-    var offset = event.data.offset,
-        value = event.data.value;
-
-    event.preventDefault();
-
-    $('html, body').animate({
-        scrollTop: value
-    }, 300);
-  }
-
-  function fixedHeader(event) {
-    var $header = $('#header');
-    var offset = event.data.offset;
-
+  function fixedHeader() {
+    var $header = $('#header .container__header__bar');
+    var offset = $('#home').height();
 
     if($(this).scrollTop() > offset) {
       $header.addClass('header--fixed');
@@ -82,6 +46,10 @@ $(function() {
     }
   }
 
+  $( window ).on( "orientationchange", function( event ) {
+    location.reload();
+  });
+
   $pluginInstance = $('.google-map').lazyLoadGoogleMaps({
     api_key: 'AIzaSyDlS1-sSq3TgIwDkochEakCeg4aZigmojM',
     callback: function(container, map) {
@@ -93,6 +61,8 @@ $(function() {
         zoom: 16,
         center: center,
         scrollwheel: false,
+        scaleControl: false,
+        mapTypeControl: false,
         navigationControl: false,
         draggable: false
       });
@@ -120,16 +90,12 @@ $(function() {
    });
   }));
 
-  //$.extend($.scrollTo.defaults, {
-    //axis: 'y',
-    //duration: 300
-  //});
 
   var lastId,
     topMenu = $("#header");
     topMenuHeight = topMenu.outerHeight()+15;
     // All list items
-    menuItems = $("#header a, .home a.arrow-down");
+    menuItems = $("#header a, .arrow--down, .footer__wrapper--logo a");
 
   // Anchors corresponding to menu items
   var scrollItems = menuItems.map(function(){
@@ -146,25 +112,26 @@ $(function() {
     if(href === "#home") {
       offsetTop = 0;
     } else if(href === "#about-us") {
-      offsetTop = $('#header').hasClass('header--fixed') ?
-        0 : topMenuHeight-10;
+      offsetTop = $('#header .header__navbar').hasClass('header--fixed') ?
+        0 : topMenuHeight - 15;
 
       offsetTop = $(href).offset().top - offsetTop;
     } else {
-      offsetTop = $('#header').hasClass('header--fixed') ?
-        topMenuHeight-20 : (2*topMenuHeight)-30;
+      offsetTop = $('#header .header__navbar').hasClass('header--fixed') ?
+        topMenuHeight-20 :  topMenuHeight-30;
 
       offsetTop = $(href).offset().top - offsetTop;
     }
 
     $('html, body').stop().animate({
         scrollTop: offsetTop
-    }, 300);
+    }, 500);
     e.preventDefault();
   });
 
   // Bind to scroll
   $(window).scroll(function(){
+     fixedHeader();
      // Get container scroll position
      var fromTop = $(this).scrollTop()+topMenuHeight;
 
@@ -186,12 +153,34 @@ $(function() {
      }
   });
 
-  $(document).on('ready', initScrollSpy());
-  $window.on('scroll', {offset: $headerOffset }, fixedHeader);
+  $('.js-singapore').mouseover(function() {
+    $(this).find('.js-overlay').css({
+      "opacity" : "0.0",
+      "transition" : "opacity 0.7s ease-in-out"
+    })
+  })
 
-  //$('[name=about-init]').on('click', {value: $aboutsectionoffsettop - $headerheight}, smoothscroll);
-  //$('[name=home]').on('click', {value: 0}, smoothscroll);
-  //$('[name=team]').on('click', {value: $teamsectionoffsettop - (window.devicepixelratio * $headerheight)}, smoothscroll);
-  //$('[name=about]').on('click', {value: $aboutsectionoffsettop - $headerheight}, smoothscroll);
-  //$('[name=contact]').on('click', {value: $contactsectionoffsettop - (window.devicepixelratio * $headerheight)}, smoothscroll);
+  $('.js-bangkok').mouseover(function() {
+    $(this).find('.js-overlay').css({
+      "opacity" : "0.0",
+      "transition" : "opacity 0.7s ease-in-out"
+    })
+  })
+
+
+  $('.js-singapore').mouseleave(function() {
+    $(this).find('.js-overlay').css({
+      "opacity" : "0.4",
+      "transition" : "opacity 0.7s ease-in-out"
+    })
+  })
+
+  $('.js-bangkok').mouseleave(function() {
+    $(this).find('.js-overlay').css({
+      "opacity" : "0.4",
+      "transition" : "opacity 0.7s ease-in-out"
+    })
+  })
+
+  $(document).on('ready', initScrollSpy());
 });

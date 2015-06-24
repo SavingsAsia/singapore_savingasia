@@ -14,10 +14,10 @@
     width: 90%;
   }
   @include respond-to(tablet) {
-    width: 63%;
+    width: 70%;
   }
   @include respond-to(desktop) {
-    width: 52%;
+    width: 57%;
   }
   @include respond-to(desktop-hd) {
     width: 52%;

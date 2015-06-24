@@ -1,33 +1,47 @@
 @import 'mixins/rwd';
 
 .container__header {
-  display: table;
   z-index: 100;
   background: white;
   display: table;
   width: 100%;
-  height: $header-container-height;
+  height: $header-height;
+  @include respond-to(mobile) {
+    height: 250px;
+  }
+  @include respond-to(mobile-small) {
+    height: 180px;
+  }
 }
 
 .header--fixed {
   position: fixed;
   top: 0px;
+  z-index: 2000;
+  width: 100%;
+  background: white;
+  height: $header-height;
+  /*box-shadow: 0 1px 5px rgba(0,0,0,0.1);*/
+  @include respond-to(mobile) {
+    height: 250px;
+  }
+  @include respond-to(mobile-small) {
+    height: 180px;
+  }
+
 }
 
-.header--none {
-  background: transparent;
-  div {
-    display: none;
-  }
+.about--offset {
+  padding-top: 35px;
+}
+
+.clearfix {
+  clear: both;
 }
 
 .container__header__bar {
-  display: table-cell !important;
-  height: inherit;
-  vertical-align: bottom;
-  display: inline;
-  padding-bottom: $half-spacing-unit;
   text-align: center;
+  padding: 30px 0 20px 0;
 }
 
 .header__logo {
@@ -161,8 +175,8 @@
   }
 
   @include respond-to(mobile) {
+    line-height: 0px;
     text-align: center;
-    padding-bottom: 20px;
     float: none !important;
   }
   @include respond-to(mobile-retina) {

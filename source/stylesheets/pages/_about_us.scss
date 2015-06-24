@@ -4,7 +4,7 @@
     height: 1800px;
   }
   @include respond-to(tablet) {
-    height: 100vh;
+    height: 800px;
   }
   @include respond-to(desktop) {
     height: 100vh;
@@ -22,21 +22,25 @@
 }
 
 .about {
+  position: relative;
+  background: white;
+
   @include respond-to(mobile) {
     padding-top: 200px;
   }
   @include respond-to(mobile-retina) {
     padding-top: 200px;
   }
+  @include respond-to(desktop) {
+    padding-top: 100px;
+  }
   @include respond-to(desktop-hd) {
-    padding-top: 200px;
+    padding-top: 100px;
   }
   @include respond-to(desktop-uhd) {
     display: table-cell;
     vertical-align: middle;
   }
-  position: relative;
-  background: white;
 }
 
 .about__wrapper {

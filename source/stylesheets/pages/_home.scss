@@ -2,22 +2,24 @@
   position: relative;
   height: 100vh;
   @include respond-to(mobile) {
-    height: 100vh;
+    height: 1850px;
+    max-height: 1870px;
   }
   @include respond-to(tablet) {
-    height: 100vh;
-    max-height: $height-section-tablet;
+    height: 750px;
+    max-height: 823px;
   }
   @include respond-to(desktop) {
     height: 100vh;
-    max-height: $height-section-desktop;
+    max-height: 1090px;
   }
   @include respond-to(desktop-hd) {
     height: 100vh;
-    max-height: $height-section-desktop;
+    max-height: 1090px;
   }
   @include respond-to(desktop-uhd) {
     height: 100vh;
+    max-height: 1600px;
   }
 }
 
@@ -63,10 +65,14 @@
   position: relative;
   width: 100%;
   margin: $base-spacing-unit auto;
-}
-
-.home__wrapper.skrollable-after {
-  position: relative !important;
+  @include respond-to(mobile) {
+    padding-top: 250px;
+    vertical-align: top;
+  }
+  @include respond-to(tablet) {
+    padding-top: 50px;
+    vertical-align: top;
+  }
 }
 
 .home__heading {
