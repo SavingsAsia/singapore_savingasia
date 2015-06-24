@@ -1,10 +1,10 @@
 #about-us {
   height: $section-height;
   @include respond-to(mobile) {
-    height: 100vh;
+    height: 1900px;
   }
   @include respond-to(mobile-retina) {
-    height: 100vh;
+    height: 1900px;
   }
   @include respond-to(tablet) {
     height: 100vh;
