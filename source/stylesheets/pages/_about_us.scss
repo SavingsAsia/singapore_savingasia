@@ -1,10 +1,7 @@
 #about-us {
   height: $section-height;
   @include respond-to(mobile) {
-    height: 1900px;
-  }
-  @include respond-to(mobile-retina) {
-    height: 1900px;
+    height: 1800px;
   }
   @include respond-to(tablet) {
     height: 100vh;
@@ -13,10 +10,14 @@
     height: 100vh;
   }
   @include respond-to(desktop-hd) {
+    display: table;
+    width: 100%;
     height: 100vh;
   }
   @include respond-to(desktop-uhd) {
-    height: 1600px;
+    display: table;
+    width: 100%;
+    height: 100vh;
   }
 }
 
@@ -27,7 +28,13 @@
   @include respond-to(mobile-retina) {
     padding-top: 200px;
   }
-  padding-top: 100px;
+  @include respond-to(desktop-hd) {
+    padding-top: 200px;
+  }
+  @include respond-to(desktop-uhd) {
+    display: table-cell;
+    vertical-align: middle;
+  }
   position: relative;
   background: white;
 }
@@ -45,9 +52,6 @@
   @include respond-to(mobile) {
     width: 90%;
   }
-  @include respond-to(mobile-retina) {
-    width: 90%;
-  }
   @include respond-to(tablet) {
     width: 75%;
   }
@@ -59,25 +63,7 @@
 .about__heading {
   color: $dark-brand;
   font-size: 1.5 * $font-huge;
-  @include respond-to(mobile-small) {
-    font-size: $mobile-small-heading;
-    font-weight: bold;
-  }
-  @include respond-to(mobile) {
-    font-size: 80px;
-  }
-  @include respond-to(mobile-retina) {
-    font-size: 80px;
-  }
-  @include respond-to(tablet) {
-    font-size: $tablet-heading;
-  }
-  @include respond-to(desktop) {
-    font-size: $desktop-heading;
-  }
-  @include respond-to(desktop-hd) {
-    font-size: $desktop-hd-heading;
-  }
+  @include set-font-for(heading);
 }
 
 .content__box {
@@ -85,24 +71,7 @@
   font-size: 32px;
   color: $dark-brand;
   p {
-    @include respond-to(mobile-small) {
-      font-size: $mobile-small-heading;
-    }
-    @include respond-to(mobile) {
-      font-size: 40px;
-    }
-    @include respond-to(mobile-retina) {
-      font-size: 40px;
-    }
-    @include respond-to(tablet) {
-      font-size: $tablet-subheading;
-    }
-    @include respond-to(desktop) {
-      font-size: $desktop-subheading;
-    }
-    @include respond-to(desktop-hd) {
-      font-size: $desktop-hd-subheading;
-    }
+    @include set-font-for(normal-text);
   }
 }
 

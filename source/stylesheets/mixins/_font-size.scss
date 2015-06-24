@@ -1,0 +1,67 @@
+@mixin set-font-for($text-type) {
+  @if $text-type == subheading {
+    @include respond-to(mobile-small) {
+      font-size: $mobile-small-heading;
+    }
+    @include respond-to(mobile) {
+      font-size: $mobile-subheading;
+    }
+    @include respond-to(tablet) {
+      font-size: $tablet-subheading;
+    }
+    @include respond-to(desktop) {
+      font-size: $desktop-subheading;
+    }
+    @include respond-to(desktop-hd) {
+      font-size: $desktop-hd-subheading;
+    }
+    @include respond-to(desktop-uhd) {
+      font-size: $desktop-uhd-subheading;
+    }
+  } @else if $text-type == heading {
+    @include respond-to(mobile-small) {
+      font-size: $mobile-small-heading;
+      font-weight: bold;
+    }
+    @include respond-to(mobile) {
+      font-size: $mobile-heading;
+    }
+    @include respond-to(tablet) {
+      font-size: $tablet-heading;
+    }
+    @include respond-to(desktop) {
+      font-size: $desktop-heading;
+    }
+    @include respond-to(desktop-hd) {
+      font-size: $desktop-hd-heading;
+    }
+    @include respond-to(desktop-uhd) {
+      font-size: $desktop-uhd-heading;
+    }
+  } @else if $text-type == normal-text {
+    @include respond-to(mobile-small) {
+      font-size: $mobile-small-text;
+      line-height: $mobile-small-text + 4px;
+    }
+    @include respond-to(mobile) {
+      font-size: $mobile-text;
+      line-height: $mobile-text + 13px;
+    }
+    @include respond-to(tablet) {
+      font-size: $tablet-text;
+      line-height: $tablet-text + 4px;
+    }
+    @include respond-to(desktop) {
+      font-size: $desktop-text;
+      line-height: $desktop-text + 4px;
+    }
+    @include respond-to(desktop-hd) {
+      font-size: $desktop-hd-text;
+      line-height: $desktop-hd-text + 4px;
+    }
+    @include respond-to(desktop-uhd) {
+      font-size: $desktop-uhd-text;
+      line-height: $desktop-uhd-text + 4px;
+    }
+  }
+}

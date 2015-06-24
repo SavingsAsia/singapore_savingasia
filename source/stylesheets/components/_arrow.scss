@@ -23,11 +23,6 @@
   @include respond-to(desktop-hd) {
     font-size: 120px;
   }
-  @include respond-to(mobile-retina) {
-    position: relative;
-    top: 100px;
-    font-size: 220px;
-  }
   @include respond-to(mobile) {
     position: relative;
     top: 100px;
@@ -35,7 +30,7 @@
   }
   @include respond-to(mobile-small) {
     position: relative;
-    top: 100px;
+    top: 20px;
     font-size: 120px;
   }
 }

@@ -22,24 +22,14 @@ $desktop-hd-breakpoint: 1920px;
                        and (orientation: landscape) { @content; }
   }
 
-  @else if $media == mobile-retina {
-    @media only screen and (min-width: 768px)
-                       and (orientation: portrait)
-                       and (-webkit-min-device-pixel-ratio: 2)
-                       and (-webkit-max-device-pixel-ratio: 3) { @content; }
-  }
   @else if $media == mobile {
     @media only screen and (min-width: 768px)
-                       and (orientation: portrait)
-                       and (-webkit-min-device-pixel-ratio: 1)
-                       and (-webkit-max-device-pixel-ratio: 1.9) { @content; }
+                       and (orientation: portrait) { @content; }
   }
 
   @else if $media == mobile-small {
     @media only screen and (min-width: 0)
                        and (max-width: 767px)
-                       and (orientation: portrait)
-                       and (-webkit-min-device-pixel-ratio: 1)
-                       and (-webkit-max-device-pixel-ratio: 1.9) { @content; }
+                       and (orientation: portrait) { @content; }
   }
 }

@@ -1,17 +1,10 @@
 #home {
   position: relative;
   height: 100vh;
-  @include respond-to(mobile-retina) {
-    height: 1700px;
-  }
   @include respond-to(mobile) {
-    height: 1700px;
+    height: 100vh;
   }
   @include respond-to(tablet) {
-    height: 100vh;
-    max-height: $height-section-tablet;
-  }
-  @include respond-to(tablet-retina) {
     height: 100vh;
     max-height: $height-section-tablet;
   }
@@ -43,9 +36,6 @@
   background: url('../images/landscape_md2.jpg');
 
   @include respond-to(mobile) {
-    background: url('../images/landscape_mobile2.jpg');
-  }
-  @include respond-to(mobile-retina) {
     background: url('../images/landscape_mobile2.jpg');
   }
   @include respond-to(tablet) {
@@ -84,51 +74,12 @@
   padding-bottom: 20px;
   color: $dark-brand;
   font-size: 40px;
+  @include set-font-for(heading);
 
-  @include respond-to(mobile-small) {
-    font-size: $mobile-small-heading + 2;
-  }
-  @include respond-to(mobile) {
-    font-size: 80px;
-  }
-  @include respond-to(tablet) {
-    font-size: $tablet-heading;
-  }
-  @include respond-to(desktop) {
-    font-size: $desktop-heading;
-  }
-  @include respond-to(desktop-hd) {
-    font-size: $desktop-hd-heading;
-  }
-  @include respond-to(desktop-uhd) {
-    font-size: 80px;
-  }
 }
 
 .home__subheading {
   color: $dark-brand;
   font-size: 0.8 * $font-huge;
-
-  @include respond-to(mobile-small) {
-    font-size: $mobile-small-heading;
-  }
-
-  @include respond-to(mobile) {
-    font-size: 55px;
-  }
-  @include respond-to(mobile-retina) {
-    font-size: 55px;
-  }
-  @include respond-to(tablet) {
-    font-size: $tablet-subheading;
-  }
-  @include respond-to(desktop) {
-    font-size: $desktop-subheading;
-  }
-  @include respond-to(desktop-hd) {
-    font-size: $desktop-hd-subheading;
-  }
-  @include respond-to(desktop-uhd) {
-    font-size: 60px;
-  }
+  @include set-font-for(subheading);
 }

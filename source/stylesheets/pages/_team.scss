@@ -1,11 +1,20 @@
 #team {
+  @include respond-to(desktop-uhd) {
+    display: table;
+    width: 100%;
+  }
+  @include respond-to(desktop-hd) {
+    display: table;
+    width: 100%;
+  }
+
 }
 
 .team {
   z-index: 20;
   position: relative;
   height: auto;
-  width: 100vw;
+  width: 100%;
 
   background: #3b7db7; /* Old browsers */
   background: -moz-linear-gradient(-45deg, #3b7db7 31%, #a1c96e 69%); /* FF3.6+ */
@@ -16,12 +25,14 @@
   background: linear-gradient(135deg, #3b7db7 31%,#a1c96e 69%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b7db7', endColorstr='#a1c96e',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
-  @include respond-to(mobile) {
+  @include respond-to(mobile-small) {
+    width: 100vw;
     height: 100vh;
     display: table-cell;
     vertical-align: middle;
   }
-  @include respond-to(mobile-retina) {
+
+  @include respond-to(mobile) {
     height: 100vh;
     display: table-cell;
     vertical-align: middle;
@@ -31,12 +42,18 @@
   }
   @include respond-to(desktop) {
     height: 100vh;
+    min-height: 1000px;
   }
   @include respond-to(desktop-hd) {
+    display: table-cell;
+    vertical-align: middle;
+    min-height: 1000px;
     height: 100vh;
   }
   @include respond-to(desktop-uhd) {
-    max-height: $height-section-desktop;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100vh;
   }
 }
 
@@ -53,6 +70,7 @@
   float: none;
   display: inline-block;
   height: 250px;
+
   @include respond-to(desktop-uhd) {
     margin-top: 250px;
   }
@@ -63,29 +81,7 @@
   color: $dark-brand;
   padding-bottom: 40px;
 
-  @include respond-to(mobile-small) {
-    font-size: $mobile-small-heading;
-    font-weight: bold;
-  }
-  @include respond-to(mobile) {
-    font-size: 80px;
-  }
-  @include respond-to(tablet) {
-    font-size: $tablet-heading;
-  }
-  @include respond-to(desktop) {
-    font-size: $desktop-heading;
-  }
-  @include respond-to(desktop-hd) {
-    font-size: $desktop-hd-heading;
-  }
-  @include respond-to(desktop-uhd) {
-    font-size: 80px;
-  }
-
-  @include respond-to(desktop-uhd) {
-    font-size: 80px;
-  }
+  @include set-font-for(heading);
 }
 
 .team__invitation {
@@ -131,48 +127,22 @@
     line-height: $font-large;
     color: $dark-brand;
     font-size: $font-large;
-    @include respond-to(mobile-small) {
-      font-size: $mobile-small-heading - 4px;
-    }
-    @include respond-to(mobile) {
-      font-size: 30px;
-      line-height: 35px;
-    }
-    @include respond-to(mobile-retina) {
-      font-size: 40px;
-      line-height: 45px;
-    }
-    @include respond-to(tablet) {
-      font-size: $tablet-subheading - 4px;
-    }
-    @include respond-to(desktop) {
-      font-size: $desktop-subheading - 5px;
-    }
-    @include respond-to(desktop-hd) {
-      font-size: $desktop-hd-subheading - 5px;
-    }
-    @include respond-to(desktop-uhd) {
-      font-size: 60px;
-    }
-
+    @include set-font-for(normal-text);
   }
 }
 
 .team__grid {
   padding-bottom: 30px;
-  @include respond-to(tablet) {
-    width: 50%;
-  }
-  @include respond-to(tablet-retina) {
-    width: 50%;
-  }
-  @include respond-to(mobile) {
-    width: 50%;
-  }
-  @include respond-to(mobile-retina) {
-    width: 50%;
-  }
   @include respond-to(mobile-small) {
     width: 100%;
+  }
+  @include respond-to(desktop) {
+    width: 25%;
+  }
+  @include respond-to(desktop-hd) {
+    width: 25%;
+  }
+  @include respond-to(desktop-uhd) {
+    width: 25%;
   }
 }
