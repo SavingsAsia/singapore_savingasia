@@ -140,6 +140,12 @@
 
 .active {
   color: $color-text-brand !important;
+  a {
+    color: $color-text-brand !important;
+    &:hover {
+      color: $color-text-brand !important;
+    }
+  }
 }
 
 .header__wrapper--logo {

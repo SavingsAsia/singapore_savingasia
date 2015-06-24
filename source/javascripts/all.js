@@ -16,7 +16,7 @@ $(function() {
     $aboutSectionOffsetTop =  $('#about-us').offset().top
     $teamSectionOffsetTop = $('#team').offset().top
     $contactSectionOffsetTop = $('#contact').offset().top
-    $headerOffset = $('#home').height();
+    $headerOffset = $('#home').height() + 100;
     $teamSectionHeight = $('#team').height()
     $('.js-nav-main').find('a').each(function() {
       sections.push($(this).attr('href'));
@@ -89,7 +89,13 @@ $(function() {
       var center      = new google.maps.
         LatLng($container.attr( 'data-lat' ), $container.attr('data-lng'));
 
-      map.setOptions({ zoom: 16, center: center, scrollwheel: false, navigationControl: false });
+      map.setOptions({
+        zoom: 16,
+        center: center,
+        scrollwheel: false,
+        navigationControl: false,
+        draggable: false
+      });
       var marker = new google.maps.Marker({ position: center, map: map });
       infowindow = new google.maps.InfoWindow({
         content: $container.data('marker'),
@@ -111,17 +117,78 @@ $(function() {
    });
   }));
 
-  $.extend($.scrollTo.defaults, {
-    axis: 'y',
-    duration: 300
+  //$.extend($.scrollTo.defaults, {
+    //axis: 'y',
+    //duration: 300
+  //});
+
+  var lastId,
+    topMenu = $("#header");
+    topMenuHeight = topMenu.outerHeight()+15;
+    // All list items
+    menuItems = $("#header a, .home a.arrow-down");
+
+  // Anchors corresponding to menu items
+  var scrollItems = menuItems.map(function(){
+    var item = $($(this).attr("href"));
+    if (item.length) { return item; }
+  });
+
+  // Bind click handler to menu items
+  // so we can get a fancy scroll animation
+  menuItems.click(function(e) {
+    var offsetTop;
+    var href = $(this).attr("href");
+
+    if(href === "#home") {
+      offsetTop = 0;
+    } else if(href === "#about-us") {
+      offsetTop = $('#header').hasClass('header--fixed') ?
+        0 : topMenuHeight-10;
+
+      offsetTop = $(href).offset().top - offsetTop;
+    } else {
+      offsetTop = $('#header').hasClass('header--fixed') ?
+        topMenuHeight-20 : (2*topMenuHeight)-30;
+
+      offsetTop = $(href).offset().top - offsetTop;
+    }
+
+    $('html, body').stop().animate({
+        scrollTop: offsetTop
+    }, 300);
+    e.preventDefault();
+  });
+
+  // Bind to scroll
+  $(window).scroll(function(){
+     // Get container scroll position
+     var fromTop = $(this).scrollTop()+topMenuHeight;
+
+     // Get id of current scroll item
+     var cur = scrollItems.map(function() {
+       if ($(this).offset().top < fromTop)
+         return this;
+     });
+     // Get the id of the current element
+     cur = cur[cur.length-1];
+     var id = cur && cur.length ? cur[0].id : "";
+
+     if (lastId !== id) {
+         lastId = id;
+         // Set/remove active class
+         menuItems
+           .parent().removeClass("active")
+           .end().filter("[href=#"+id+"]").parent().addClass("active");
+     }
   });
 
   $(document).on('ready', initScrollSpy());
   $window.on('scroll', {offset: $headerOffset }, fixedHeader);
 
-  $('[name=about-init]').on('click', {value: $aboutSectionOffsetTop - $headerHeight}, smoothScroll);
-  $('[name=home]').on('click', {value: 0}, smoothScroll);
-  $('[name=team]').on('click', {value: $teamSectionOffsetTop - (window.devicePixelRatio * $headerHeight)}, smoothScroll);
-  $('[name=about]').on('click', {value: $aboutSectionOffsetTop - $headerHeight}, smoothScroll);
-  $('[name=contact]').on('click', {value: $contactSectionOffsetTop - (window.devicePixelRatio * $headerHeight)}, smoothScroll);
+  //$('[name=about-init]').on('click', {value: $aboutsectionoffsettop - $headerheight}, smoothscroll);
+  //$('[name=home]').on('click', {value: 0}, smoothscroll);
+  //$('[name=team]').on('click', {value: $teamsectionoffsettop - (window.devicepixelratio * $headerheight)}, smoothscroll);
+  //$('[name=about]').on('click', {value: $aboutsectionoffsettop - $headerheight}, smoothscroll);
+  //$('[name=contact]').on('click', {value: $contactsectionoffsettop - (window.devicepixelratio * $headerheight)}, smoothscroll);
 });
