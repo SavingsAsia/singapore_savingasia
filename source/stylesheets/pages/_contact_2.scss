@@ -1,7 +1,6 @@
 #contact {
   /*height: 1200px;*/
   overflow: hidden;
-  text-align: center;
   @include respond-to(mobile-small) {
     height: 100vh;
   }
@@ -10,9 +9,6 @@
   }
   @include respond-to(tablet) {
     height: 1300px;
-  }
-  @include respond-to(desktop-uhd) {
-    height: 1600px;
   }
 }
 
@@ -44,7 +40,7 @@
   z-index: 20;
 
   .google-map {
-    width: 50%;
+    width: 100%;
     height: 100vh;
     display: inline-block;
     @include respond-to(mobile-small) {
@@ -67,6 +63,33 @@
       font-size: 32px;
     }
   }
+}
+
+.map__wrapper {
+  display: inline-block;
+  width: 50%;
+  position: relative;
+  z-index: 10000;
+  padding: 1px;
+}
+
+.loading {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  z-index: 1000;
+}
+
+.contact__box1 {
+  width: 40%;
+  background-color: white;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .contact__heading {

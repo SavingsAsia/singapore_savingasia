@@ -95,8 +95,11 @@ $(function() {
         content: $container.data('marker'),
       });
 
-       google.maps.event.addListener(infowindow, 'domready', function(){
+      google.maps.event.addListener(infowindow, 'domready', function(){
         $(".gm-style-iw").next("div").hide();
+      });
+      google.maps.event.addListener(map, "tilesloaded", function() {
+        $container.parent().children().first().hide();
       });
 
       infowindow.open(map,marker);
