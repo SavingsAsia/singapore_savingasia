@@ -155,6 +155,7 @@ $(function() {
 
   $('.js-singapore').mouseover(function() {
     $(this).find('.js-overlay').css({
+      "z-index" : "0",
       "opacity" : "0.0",
       "transition" : "opacity 0.7s ease-in-out"
     })
@@ -162,6 +163,7 @@ $(function() {
 
   $('.js-bangkok').mouseover(function() {
     $(this).find('.js-overlay').css({
+      "z-index" : "0",
       "opacity" : "0.0",
       "transition" : "opacity 0.7s ease-in-out"
     })

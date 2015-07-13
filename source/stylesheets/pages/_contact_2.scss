@@ -41,6 +41,7 @@
   .gm-style .gm-style-iw {
     font-family: inherit;
     font-size: 18px;
+    z-index: 4000 !important;
     @include respond-to(mobile) {
       font-size: 32px;
     }
