@@ -1,5 +1,3 @@
-//= require_tree .
-
 $(function() {
   var $headerHeight = 0;
   var sections = [];

@@ -10,7 +10,7 @@ class App < Roda
     compiled_css_dir: "stylesheets",
     precompiled: "compiled_assets.json",
     prefix: nil,
-    js: %w(all.js google.analitics.js jquery.lazy-load-google-maps.min.js jquery.mobile.custom.min.js )
+    js: %w(jquery-2.1.4.min.js all.js google.analitics.js jquery.mobile.custom.min.js jquery.lazy-load-google-maps.min.js )
 
   route do |r|
     r.assets
