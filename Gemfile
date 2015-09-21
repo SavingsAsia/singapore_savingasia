@@ -6,8 +6,9 @@ gem "rack"
 gem "rake"
 gem "roda"
 
-gem 'slim', '>= 2.0'
-gem 'bootstrap-sass'
+gem "sass"
+gem "slim"
+gem "tilt"
 
 # for faster file watcher updates on windows:
 gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
