@@ -20,9 +20,9 @@ class App < Roda
       r.redirect "/en"
     end
 
-    r.is :id do |id|
+    r.is :id do |lang|
       r.get do
-        TRANSLATIONS.include?(id) ? view("#{id}/index") : view("404")
+        TRANSLATIONS.include?(lang) ? view("index", locals: { lang: lang }) : view("404")
       end
     end
   end
