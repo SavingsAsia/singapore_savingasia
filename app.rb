@@ -1,8 +1,6 @@
 require "roda"
 require "slim"
 
-TRANSLATIONS = %w(en th).freeze
-
 class App < Roda
   plugin :render, engine: "slim"
   plugin :static, ["/assets"]
@@ -12,12 +10,22 @@ class App < Roda
     compiled_css_dir: "stylesheets",
     precompiled: "compiled_assets.json",
     prefix: nil,
-    js: %w(jquery-2.1.4.min.js all.js google.analitics.js jquery.mobile.custom.min.js jquery.lazy-load-google-maps.min.js )
+    js: %w(
+      jquery-2.1.4.min.js
+      all.js
+      google.analitics.js
+      jquery.mobile.custom.min.js
+      jquery.lazy-load-google-maps.min.js
+    )
+
+  DEFAULT_LANGUAGE = "en".freeze
+  TRANSLATIONS = %w(en th).freeze
+
 
   route do |r|
     r.assets
     r.root do
-      r.redirect "/en"
+      r.redirect "/#{DEFAULT_LANGUAGE}"
     end
 
     r.is :id do |lang|
