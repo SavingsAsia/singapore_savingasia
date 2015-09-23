@@ -25,7 +25,7 @@ class App < Roda
   route do |r|
     r.assets
     r.root do
-      r.redirect "/#{DEFAULT_LANGUAGE}"
+      r.redirect "/#{DEFAULT_LANGUAGE}", response.status = 301
     end
 
     r.is :id do |lang|
