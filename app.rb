@@ -1,6 +1,8 @@
 require "roda"
 require "slim"
 
+TRANSLATIONS = %w(en th).freeze
+
 class App < Roda
   plugin :render, engine: "slim"
   plugin :static, ["/assets"]
@@ -15,13 +17,14 @@ class App < Roda
   route do |r|
     r.assets
     r.root do
-      r.redirect "https://getmii.com"
+      r.redirect "/en"
     end
 
-    r.on "en" do
+    r.is :id do |id|
       r.get do
-        view("en/index")
+        TRANSLATIONS.include?(id) ? view("#{id}/index") : view("404")
       end
     end
   end
 end
+
