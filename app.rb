@@ -3,6 +3,7 @@ require "slim"
 
 class App < Roda
   plugin :render, engine: "slim"
+  plugin :environments
   plugin :static, ["/assets"]
   plugin :assets,
     css: %w(all.scss),
@@ -17,6 +18,10 @@ class App < Roda
       jquery.mobile.custom.min.js
       jquery.lazy-load-google-maps.min.js
     )
+
+  configure :production do
+    compile_assets
+  end
 
   DEFAULT_LANGUAGE = "en".freeze
   TRANSLATIONS = %w(en th).freeze
