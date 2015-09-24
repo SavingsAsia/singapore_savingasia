@@ -30,9 +30,16 @@ class App < Roda
 
     r.is  :lang  do |lang|
       r.get do
-        return view(404) unless TRANSLATIONS.include?(lang)
-        view("index", locals: { lang: lang })
+        if TRANSLATIONS.include?(lang)
+          view("index", locals: { lang: lang })
+        else
+          r.redirect "/404", response.status = 301
+        end
       end
+    end
+
+    r.is "/404" do
+        view("404")
     end
   end
 end
