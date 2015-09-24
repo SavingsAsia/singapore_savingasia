@@ -28,14 +28,11 @@ class App < Roda
       r.redirect "/#{DEFAULT_LANGUAGE}", response.status = 301
     end
 
-    r.is  /TRANSLATIONS.join('|')/  do |lang|
+    r.is  :lang  do |lang|
       r.get do
+        return view(404) unless TRANSLATIONS.include?(lang)
         view("index", locals: { lang: lang })
       end
-    end
-
-    r.is :unknown do
-      view("404")
     end
   end
 end
