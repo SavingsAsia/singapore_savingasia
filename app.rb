@@ -2,9 +2,13 @@ require "roda"
 require "slim"
 
 class App < Roda
+  DEFAULT_LANGUAGE = "en".freeze
+  TRANSLATIONS = %w(en th).freeze
+
   plugin :render, engine: "slim"
   plugin :environments
-  plugin :static, ["/assets"]
+  plugin :not_found
+  plugin :static, ["/fonts", "/images", "/stylesheets"]
   plugin :assets,
     css: %w(all.scss),
     css_opts: { style: :compressed, cache: false },
@@ -23,33 +27,25 @@ class App < Roda
     compile_assets
   end
 
-  DEFAULT_LANGUAGE = "en".freeze
-  TRANSLATIONS = %w(en th).freeze
-
+  not_found do
+    view("404")
+  end
 
   route do |r|
     r.assets
+
     r.root do
       r.redirect "/#{DEFAULT_LANGUAGE}", response.status = 301
     end
 
-    r.is  :lang  do |lang|
+    r.is ":lang" do |lang|
       r.get do
         if TRANSLATIONS.include?(lang)
           view("index", locals: { lang: lang })
         else
-          r.redirect "/404", response.status = 301
+          r.redirect "/404", response.status = 404
         end
       end
     end
-
-    r.is "/404" do
-        view("404")
-    end
   end
 end
-
-
-
-# return view(404) unless TRANSLATIONS.include?(lang)
-# view("index", locals: { lang: lang })

@@ -27,9 +27,9 @@ describe "app routing" do
     expect(last_response.status).to eql(200)
   end
 
-  it "returns 301 HTTP redirect status code for unknown language" do
+  it "returns 404 HTTP redirect status code for unknown language" do
     get "/it"
 
-    expect(last_response.status).to eql(301)
+    expect(last_response.status).to eql(404)
   end
 end
