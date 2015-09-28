@@ -13,10 +13,11 @@ class App < Roda
     css: %w(all.scss),
     css_opts: { style: :compressed, cache: false },
     compiled_css_dir: "stylesheets",
+    compiled_js_dir: "javascripts",
+    compiled_path: nil,
     precompiled: "compiled_assets.json",
     prefix: nil,
     js: %w(
-      jquery-2.1.4.min.js
       all.js
       google.analitics.js
       jquery.mobile.custom.min.js
