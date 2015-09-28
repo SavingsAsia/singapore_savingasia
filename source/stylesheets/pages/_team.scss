@@ -101,13 +101,16 @@
 
 .team__member__avatar--mj {
   @include team-member(matthias);
+
+  background-position: 1px -8px!important;
 }
 
 .team__member__avatar--ss {
   @include team-member(sergey);
-
-  background-position: -15px !important;
+  background-position: 0px -6px !important;
+  background-color: #CDC8C3 !important;
 }
+
 
 .team__member__avatar--mm {
   @include team-member(max);

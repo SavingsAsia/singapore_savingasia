@@ -31,13 +31,13 @@
     width: 250px;
   }
   @include respond-to(mobile-small) {
-    $url: '../images/#{$name}_mobile.jpg';
+    $url: '../images/#{$name}_md.jpg';
     background: url($url);
     height: 200px;
     width: 200px;
   }
   @include respond-to(mobile) {
-    $url: '../images/#{$name}_mobile.jpg';
+    $url: '../images/#{$name}_md.jpg';
     background: url($url);
     height: 270px;
     width: 270px;
