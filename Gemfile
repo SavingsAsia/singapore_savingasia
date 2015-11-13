@@ -6,6 +6,7 @@ ruby '2.2.2'
 
 gem 'rack'
 gem 'rake'
+gem 'puma'
 
 gem "middleman", "~>3.3.12"
 gem "middleman-deploy"
